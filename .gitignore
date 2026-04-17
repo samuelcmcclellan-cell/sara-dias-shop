@@ -51,3 +51,5 @@ SUB - *.md
 # local assistant settings
 /.claude
 
+
+.vercel
