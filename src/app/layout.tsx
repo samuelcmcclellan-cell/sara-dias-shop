@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { Toaster } from "@/components/ui/toaster";
+import { LanguageProvider } from "@/lib/language-context";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,19 +21,21 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SUB — Your photo. Your shirt. $30.",
+  title: "ESTAMPA — Bold prints. Premium tees. $50.",
   description:
-    "Upload any image. We sublimation-print it edge-to-edge on a premium polyester tee. Delivered to your door.",
+    "Exclusive all-over-print designs by Sara Dias. Sublimation-printed on premium polyester. Delivered to your door.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="min-h-screen flex flex-col bg-background font-sans text-primary antialiased">
-        <Navigation />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <Toaster />
+        <LanguageProvider>
+          <Navigation />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <Toaster />
+        </LanguageProvider>
       </body>
     </html>
   );

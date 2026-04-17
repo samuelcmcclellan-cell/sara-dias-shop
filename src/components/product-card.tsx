@@ -1,10 +1,17 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { formatPrice } from "@/lib/utils";
-import type { Pattern } from "@/lib/patterns";
+import { formatPrice, formatPriceBRL } from "@/lib/utils";
+import { PRICE_BRL, type Pattern } from "@/lib/patterns";
+import { useLanguage } from "@/lib/language-context";
 
 export function ProductCard({ pattern, priority = false }: { pattern: Pattern; priority?: boolean }) {
+  const { locale } = useLanguage();
+  const priceDisplay =
+    locale === "pt" ? formatPriceBRL(PRICE_BRL) : formatPrice(pattern.price);
+
   return (
     <Link
       href={`/product/${pattern.slug}`}
@@ -24,7 +31,7 @@ export function ProductCard({ pattern, priority = false }: { pattern: Pattern; p
         <div className="flex items-start justify-between gap-3">
           <h3 className="text-lg font-bold text-primary line-clamp-1">{pattern.name}</h3>
           <span className="font-mono text-lg font-bold text-primary whitespace-nowrap">
-            {formatPrice(pattern.price)}
+            {priceDisplay}
           </span>
         </div>
         <Badge variant="secondary" className="self-start text-[10px] uppercase tracking-wider">

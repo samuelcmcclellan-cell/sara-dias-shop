@@ -1,6 +1,6 @@
 import type { CartItem } from "./patterns";
 
-const KEY = "sub-cart";
+const KEY = "estampa-cart";
 
 function isBrowser() {
   return typeof window !== "undefined";
@@ -8,7 +8,7 @@ function isBrowser() {
 
 function notifyChange() {
   if (!isBrowser()) return;
-  window.dispatchEvent(new Event("sub-cart-updated"));
+  window.dispatchEvent(new Event("estampa-cart-updated"));
 }
 
 export function readCart(): CartItem[] {

@@ -1,31 +1,40 @@
+"use client";
+
 import Link from "next/link";
 import { Instagram } from "lucide-react";
+import { useLanguage } from "@/lib/language-context";
+import { t } from "@/lib/translations";
 
 export function Footer() {
+  const { locale } = useLanguage();
+  const tr = t[locale];
+
   return (
     <footer className="border-t border-border bg-light">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           {/* Brand */}
           <div>
-            <div className="font-black text-2xl uppercase tracking-[0.15em] text-primary">SUB</div>
-            <p className="mt-3 text-sm text-muted max-w-xs">
-              Your photo. Your shirt. $30.
-            </p>
+            <div className="font-black text-2xl uppercase tracking-[0.15em] text-primary">
+              ESTAMPA
+            </div>
+            <p className="mt-3 text-sm text-muted max-w-xs">{tr.tagline}</p>
           </div>
 
           {/* Company */}
           <div>
-            <h3 className="text-sm font-semibold text-primary uppercase tracking-wide">Company</h3>
+            <h3 className="text-sm font-semibold text-primary uppercase tracking-wide">
+              {tr.footer_company}
+            </h3>
             <ul className="mt-4 space-y-2 text-sm">
               <li>
                 <Link href="/about" className="text-muted hover:text-accent transition-colors">
-                  About
+                  {tr.footer_about}
                 </Link>
               </li>
               <li>
                 <Link href="/faq" className="text-muted hover:text-accent transition-colors">
-                  FAQ
+                  {tr.footer_faq}
                 </Link>
               </li>
             </ul>
@@ -33,16 +42,18 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="text-sm font-semibold text-primary uppercase tracking-wide">Legal</h3>
+            <h3 className="text-sm font-semibold text-primary uppercase tracking-wide">
+              {tr.footer_legal}
+            </h3>
             <ul className="mt-4 space-y-2 text-sm">
               <li>
                 <Link href="/terms" className="text-muted hover:text-accent transition-colors">
-                  Terms
+                  {tr.footer_terms}
                 </Link>
               </li>
               <li>
                 <Link href="/privacy" className="text-muted hover:text-accent transition-colors">
-                  Privacy
+                  {tr.footer_privacy}
                 </Link>
               </li>
             </ul>
@@ -50,7 +61,9 @@ export function Footer() {
 
           {/* Social */}
           <div>
-            <h3 className="text-sm font-semibold text-primary uppercase tracking-wide">Social</h3>
+            <h3 className="text-sm font-semibold text-primary uppercase tracking-wide">
+              {tr.footer_social}
+            </h3>
             <ul className="mt-4 space-y-2 text-sm">
               <li>
                 <a
@@ -81,9 +94,9 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center gap-1 border-t border-border pt-6 text-center text-sm text-muted">
-          <span>© 2026 SUB. All rights reserved.</span>
+          <span>{tr.footer_copyright}</span>
           <span>
-            Patterns by{" "}
+            {tr.footer_patterns_by}{" "}
             <a
               href="https://instagram.com/saradiasestampa"
               target="_blank"

@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Truck, Shield, Palette, Clock, ArrowRight, Instagram } from "lucide-react";
@@ -5,9 +7,13 @@ import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/components/product-card";
 import { LookbookGrid, type LookbookTile } from "@/components/lookbook-grid";
 import { getFeaturedPatterns } from "@/lib/patterns";
+import { useLanguage } from "@/lib/language-context";
+import { t } from "@/lib/translations";
 
 export default function HomePage() {
   const featured = getFeaturedPatterns();
+  const { locale } = useLanguage();
+  const tr = t[locale];
 
   const lookbookTiles: LookbookTile[] = [
     {
@@ -36,6 +42,12 @@ export default function HomePage() {
     },
   ];
 
+  const steps = [
+    { num: "01", title: tr.step1_title, desc: tr.step1_desc },
+    { num: "02", title: tr.step2_title, desc: tr.step2_desc },
+    { num: "03", title: tr.step3_title, desc: tr.step3_desc },
+  ];
+
   return (
     <div className="flex flex-col">
       {/* HERO */}
@@ -52,36 +64,33 @@ export default function HomePage() {
           <div className="flex flex-col items-start">
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium uppercase tracking-wider text-muted">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              Exclusive artist collaborations
+              {tr.hero_badge}
             </span>
             <h1 className="mt-6 text-5xl font-black leading-[1.05] tracking-tight text-primary sm:text-6xl lg:text-7xl">
-              Bold Patterns.
+              {tr.hero_heading_line1}
               <br />
-              Premium Tees.
+              {tr.hero_heading_line2}
               <br />
-              <span className="text-accent font-mono">$30.</span>
+              <span className="text-accent font-mono">{tr.hero_price_display}</span>
             </h1>
-            <p className="mt-6 max-w-lg text-base text-muted sm:text-lg">
-              Exclusive all-over-print designs by Sara Dias. Sublimation-printed on premium
-              polyester. Delivered to your door.
-            </p>
+            <p className="mt-6 max-w-lg text-base text-muted sm:text-lg">{tr.hero_sub}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button asChild size="xl">
                 <Link href="/collection">
-                  Shop the Collection <ArrowRight />
+                  {tr.hero_cta_primary} <ArrowRight />
                 </Link>
               </Button>
               <Button asChild size="xl" variant="outline">
-                <a href="#how-it-works">Learn More</a>
+                <a href="#how-it-works">{tr.hero_cta_secondary}</a>
               </Button>
             </div>
             <div className="mt-8 flex items-center gap-4 text-xs text-muted">
               <span className="font-mono">★★★★★</span>
-              <span>Designed with love in Brazil · Printed & shipped worldwide</span>
+              <span>{tr.hero_social_proof}</span>
             </div>
           </div>
 
-          {/* Hero visual — split: primary lifestyle shot + floating flat-lay */}
+          {/* Hero visual */}
           <div className="relative lg:ml-auto lg:max-w-xl">
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border bg-white shadow-xl">
               <Image
@@ -93,7 +102,7 @@ export default function HomePage() {
                 className="object-cover"
               />
               <div className="absolute top-4 right-4 rounded-full bg-accent px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-white">
-                $30
+                {locale === "pt" ? "R$120" : "$50"}
               </div>
               <div className="absolute bottom-4 left-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-primary backdrop-blur">
                 Featured: Midnight Bloom
@@ -124,17 +133,15 @@ export default function HomePage() {
           <div className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
             <div>
               <h2 className="text-4xl font-black tracking-tight text-primary sm:text-5xl">
-                Featured Designs
+                {tr.featured_heading}
               </h2>
-              <p className="mt-2 text-base text-muted">
-                A taste of what&apos;s in the collection right now.
-              </p>
+              <p className="mt-2 text-base text-muted">{tr.featured_sub}</p>
             </div>
             <Link
               href="/collection"
               className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline"
             >
-              View all <ArrowRight className="h-4 w-4" />
+              {tr.featured_view_all} <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 
@@ -154,9 +161,9 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 max-w-2xl">
             <h2 className="text-4xl font-black tracking-tight text-primary sm:text-5xl">
-              In the wild
+              {tr.lookbook_heading}
             </h2>
-            <p className="mt-2 text-base text-muted">Sara&apos;s patterns, photographed.</p>
+            <p className="mt-2 text-base text-muted">{tr.lookbook_sub}</p>
           </div>
           <LookbookGrid tiles={lookbookTiles} />
         </div>
@@ -167,31 +174,13 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-4xl font-black tracking-tight text-primary sm:text-5xl">
-              How it works
+              {tr.how_it_works_heading}
             </h2>
-            <p className="mt-4 text-base text-muted">
-              Three steps from browse to wardrobe.
-            </p>
+            <p className="mt-4 text-base text-muted">{tr.how_it_works_sub}</p>
           </div>
 
           <div className="mt-16 grid gap-8 md:grid-cols-3 md:gap-10">
-            {[
-              {
-                num: "01",
-                title: "Browse",
-                desc: "Explore our curated collection of exclusive patterns.",
-              },
-              {
-                num: "02",
-                title: "Pick Your Size",
-                desc: "Choose from S to 3XL — same bold print on every size.",
-              },
-              {
-                num: "03",
-                title: "We Print & Ship",
-                desc: "All-over sublimation printing on premium polyester. Free shipping.",
-              },
-            ].map((step) => (
+            {steps.map((step) => (
               <div
                 key={step.num}
                 className="relative flex flex-col items-center rounded-2xl border border-border bg-white p-8 text-center transition-shadow hover:shadow-lg"
@@ -213,15 +202,13 @@ export default function HomePage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div className="order-2 lg:order-1">
               <span className="inline-flex items-center gap-2 rounded-full border border-border bg-light px-3 py-1 text-xs font-medium uppercase tracking-wider text-muted">
-                The Artist
+                {tr.artist_badge}
               </span>
               <h2 className="mt-4 text-4xl font-black tracking-tight text-primary sm:text-5xl">
-                Designed by Sara Dias
+                {tr.artist_heading}
               </h2>
               <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
-                Sara Dias is a Brazilian pattern designer known for vibrant tropical and
-                botanical prints. Each SUB design is an exclusive collaboration bringing her
-                bold artwork to premium sublimation tees.
+                {tr.artist_bio}
               </p>
               <a
                 href="https://instagram.com/saradiasestampa"
@@ -230,7 +217,7 @@ export default function HomePage() {
                 className="mt-6 inline-flex items-center gap-2 text-base font-semibold text-accent hover:underline"
               >
                 <Instagram className="h-4 w-4" />
-                Follow her on Instagram → @saradiasestampa
+                {tr.artist_instagram}
               </a>
             </div>
 
@@ -286,7 +273,7 @@ export default function HomePage() {
               className="bg-white text-primary hover:bg-white/90 shadow-lg"
             >
               <Link href="/collection">
-                Shop the Collection <ArrowRight />
+                {tr.hero_cta_primary} <ArrowRight />
               </Link>
             </Button>
           </div>

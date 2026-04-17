@@ -24,26 +24,29 @@ import { useToast } from "@/hooks/use-toast";
 import { addToCart } from "@/lib/cart";
 import {
   PRICE_CENTS,
+  PRICE_BRL,
   SHIRT_SIZES,
   SIZE_CHART,
   type CartItem,
   type Pattern,
   type ShirtSize,
 } from "@/lib/patterns";
-import { cn, formatPrice } from "@/lib/utils";
+import { cn, formatPrice, formatPriceBRL } from "@/lib/utils";
+import { useLanguage } from "@/lib/language-context";
+import { t } from "@/lib/translations";
 
-function SizeChartDialog() {
+function SizeChartDialog({ tr }: { tr: typeof t["en"] }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
         <button className="inline-flex items-center gap-1 text-xs font-medium text-accent hover:underline">
-          <Ruler className="h-3 w-3" /> Size Chart
+          <Ruler className="h-3 w-3" /> {tr.size_chart}
         </button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Size Chart</DialogTitle>
-          <DialogDescription>All measurements are in inches.</DialogDescription>
+          <DialogTitle>{tr.size_chart}</DialogTitle>
+          <DialogDescription>{tr.measurements_in}</DialogDescription>
         </DialogHeader>
         <div className="overflow-hidden rounded-lg border border-border">
           <table className="w-full text-sm">
@@ -74,11 +77,19 @@ function SizeChartDialog() {
 
 export function ProductDetail({ pattern }: { pattern: Pattern }) {
   const { toast } = useToast();
+  const { locale } = useLanguage();
+  const tr = t[locale];
   const [size, setSize] = useState<ShirtSize>("M");
   const [quantity, setQuantity] = useState(1);
   const [phase, setPhase] = useState<"idle" | "loading" | "done">("idle");
 
-  const total = PRICE_CENTS * quantity;
+  const totalUsd = PRICE_CENTS * quantity;
+  const totalBrl = PRICE_BRL * quantity;
+
+  const priceDisplay = locale === "pt" ? formatPriceBRL(PRICE_BRL) : formatPrice(PRICE_CENTS);
+  const totalDisplay =
+    locale === "pt" ? formatPriceBRL(totalBrl) : formatPrice(totalUsd);
+  const unitLabel = locale === "pt" ? `R$120 × ${quantity} = ` : `$50 × ${quantity} = `;
 
   const handleAdd = async () => {
     setPhase("loading");
@@ -92,16 +103,22 @@ export function ProductDetail({ pattern }: { pattern: Pattern }) {
       price: PRICE_CENTS,
       createdAt: new Date().toISOString(),
     };
-    // Brief artificial delay so the loading → done transition is visible
     await new Promise((r) => setTimeout(r, 350));
     addToCart(item);
     setPhase("done");
-    toast({ title: "Added to cart!", description: `${pattern.name} · ${size} × ${quantity}` });
+    toast({ title: tr.added_to_cart, description: `${pattern.name} · ${size} × ${quantity}` });
     setTimeout(() => setPhase("idle"), 1600);
   };
 
   const incQuantity = () => setQuantity((q) => Math.min(10, q + 1));
   const decQuantity = () => setQuantity((q) => Math.max(1, q - 1));
+
+  const addLabel =
+    phase === "done"
+      ? locale === "pt" ? "Adicionado!" : "Added!"
+      : phase === "loading"
+      ? locale === "pt" ? "Adicionando…" : "Adding…"
+      : tr.add_to_cart;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
@@ -126,9 +143,7 @@ export function ProductDetail({ pattern }: { pattern: Pattern }) {
                 {pattern.category}
               </Badge>
             </div>
-            <p className="mt-4 font-mono text-4xl font-bold text-accent">
-              {formatPrice(pattern.price)}
-            </p>
+            <p className="mt-4 font-mono text-4xl font-bold text-accent">{priceDisplay}</p>
           </div>
 
           <p className="text-base leading-relaxed text-muted">{pattern.description}</p>
@@ -139,7 +154,7 @@ export function ProductDetail({ pattern }: { pattern: Pattern }) {
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">Size</h3>
-              <SizeChartDialog />
+              <SizeChartDialog tr={tr} />
             </div>
             <div className="grid grid-cols-6 gap-1.5">
               {SHIRT_SIZES.map((s) => {
@@ -204,11 +219,11 @@ export function ProductDetail({ pattern }: { pattern: Pattern }) {
             <span className="font-mono text-2xl font-bold text-primary">
               {quantity > 1 ? (
                 <>
-                  <span className="text-sm font-normal text-muted">$30 × {quantity} = </span>
-                  {formatPrice(total)}
+                  <span className="text-sm font-normal text-muted">{unitLabel}</span>
+                  {totalDisplay}
                 </>
               ) : (
-                formatPrice(total)
+                totalDisplay
               )}
             </span>
           </div>
@@ -219,14 +234,12 @@ export function ProductDetail({ pattern }: { pattern: Pattern }) {
             className="w-full"
             onClick={handleAdd}
             disabled={phase !== "idle"}
-            aria-label="Add to cart"
+            aria-label={tr.add_to_cart}
           >
             {phase === "loading" && <Loader2 className="h-5 w-5 animate-spin" />}
             {phase === "done" && <Check className="h-5 w-5" />}
             {phase === "idle" && null}
-            <span>
-              {phase === "done" ? "Added!" : phase === "loading" ? "Adding…" : "Add to Cart"}
-            </span>
+            <span>{addLabel}</span>
           </Button>
 
           <div className="h-px bg-border" />
@@ -252,8 +265,8 @@ export function ProductDetail({ pattern }: { pattern: Pattern }) {
             <AccordionItem value="shipping">
               <AccordionTrigger>Shipping & Returns</AccordionTrigger>
               <AccordionContent>
-                Free shipping on every order. Printed on demand and delivered in 5–12 days. Due
-                to the custom nature of the print, we only accept returns for manufacturing
+                Free shipping on every order. Printed on demand and delivered in 5–12 days. Since
+                each tee is printed to order, we only accept returns for manufacturing
                 defects — reach out within 30 days and we&apos;ll make it right.
               </AccordionContent>
             </AccordionItem>

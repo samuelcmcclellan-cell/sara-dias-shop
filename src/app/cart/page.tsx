@@ -39,7 +39,7 @@ function EmptyCart() {
         Your cart is empty
       </h1>
       <p className="mt-3 text-base text-muted">
-        Find a pattern you love — every shirt is $30 with free shipping.
+        Find a pattern you love — every shirt is $50 with free shipping.
       </p>
       <Button asChild size="lg" className="mt-6">
         <Link href="/collection">Shop the Collection</Link>
@@ -58,10 +58,10 @@ export default function CartPage() {
     setItems(readCart());
     setHydrated(true);
     const onUpdate = () => setItems(readCart());
-    window.addEventListener("sub-cart-updated", onUpdate);
+    window.addEventListener("estampa-cart-updated", onUpdate);
     window.addEventListener("storage", onUpdate);
     return () => {
-      window.removeEventListener("sub-cart-updated", onUpdate);
+      window.removeEventListener("estampa-cart-updated", onUpdate);
       window.removeEventListener("storage", onUpdate);
     };
   }, []);

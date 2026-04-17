@@ -8,3 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 export function formatPrice(cents: number): string {
   return `$${(cents / 100).toFixed(2)}`;
 }
+
+export function formatPriceBRL(centavos: number): string {
+  return `R$${(centavos / 100).toFixed(0)}`;
+}

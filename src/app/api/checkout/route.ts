@@ -68,7 +68,7 @@ export async function POST(req: Request) {
     await prisma.order.create({
       data: {
         stripeSessionId: sessionId,
-        email: "demo@sub.local",
+        email: "demo@estampa.local",
         status: "paid",
         shippingAddress: JSON.stringify(DEMO_SHIPPING),
         total,
@@ -101,7 +101,7 @@ export async function POST(req: Request) {
         price_data: {
           currency: "usd",
           product_data: {
-            name: `SUB — ${i.patternName} (Size ${i.size})`,
+            name: `ESTAMPA — ${i.patternName} (Size ${i.size})`,
             ...(imagesField ? { images: imagesField } : {}),
           },
           unit_amount: i.price,

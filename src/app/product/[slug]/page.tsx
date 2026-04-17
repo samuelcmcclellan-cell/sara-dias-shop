@@ -17,7 +17,7 @@ export async function generateMetadata({
   const pattern = getPattern(slug);
   if (!pattern) return { title: "Pattern not found" };
   return {
-    title: `${pattern.name} — SUB`,
+    title: `${pattern.name} — ESTAMPA`,
     description: pattern.description,
   };
 }

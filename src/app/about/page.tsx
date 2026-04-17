@@ -4,9 +4,9 @@ import { ArrowRight, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const metadata = {
-  title: "About — SUB",
+  title: "About — ESTAMPA",
   description:
-    "The story behind SUB: exclusive all-over-print tees by Brazilian pattern designer Sara Dias, printed via sublimation on premium polyester.",
+    "The story behind ESTAMPA: exclusive all-over-print tees by Brazilian pattern designer Sara Dias, printed via sublimation on premium polyester.",
 };
 
 export default function AboutPage() {
@@ -18,7 +18,7 @@ export default function AboutPage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
               <span className="inline-flex items-center gap-2 rounded-full border border-border bg-light px-3 py-1 text-xs font-medium uppercase tracking-wider text-muted">
-                About SUB
+                About ESTAMPA
               </span>
               <h1 className="mt-4 text-5xl font-black leading-[1.05] tracking-tight text-primary sm:text-6xl lg:text-7xl">
                 Wearable art,
@@ -26,7 +26,7 @@ export default function AboutPage() {
                 printed edge to edge.
               </h1>
               <p className="mt-6 max-w-lg text-base leading-relaxed text-muted sm:text-lg">
-                SUB is a tiny label with one obsession: putting bold, original patterns on
+                ESTAMPA is a tiny label with one obsession: putting bold, original patterns on
                 well-made tees, printed so the art runs across every seam. No half-placed
                 logos. No chest-print crops. Just the full painting, worn.
               </p>
@@ -87,7 +87,7 @@ export default function AboutPage() {
                 We partnered with{" "}
                 <span className="font-semibold text-primary">Sara Dias</span> — a Brazilian
                 artist whose pattern work already lived at that scale — to launch the first
-                collection of eight designs. Each is a tee, a $30 flat price, and an
+                collection of eight designs. Each is a tee, a $50 flat price, and an
                 artwork you can wear out the door.
               </p>
               <p>No drops. No exclusives. Just the collection, printed and shipped when you order it.</p>
@@ -128,7 +128,7 @@ export default function AboutPage() {
               <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
                 Sara is a Brazilian pattern designer known for vibrant tropical and
                 botanical prints. She paints in gouache and oil, builds the repeat digitally,
-                and usually works from her studio in Recife. The SUB collection is her first
+                and usually works from her studio in Recife. The ESTAMPA collection is her first
                 label collaboration — eight exclusive designs that live only here.
               </p>
               <a

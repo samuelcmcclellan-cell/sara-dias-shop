@@ -34,7 +34,7 @@ export default function AuthPage() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-light px-4">
       <div className="w-full max-w-sm rounded-2xl border border-border bg-white p-8 shadow-xl">
-        <h1 className="text-3xl font-black tracking-tight text-primary">SUB</h1>
+        <h1 className="text-3xl font-black tracking-tight text-primary">ESTAMPA</h1>
         <p className="mt-1 text-sm text-muted">Enter the site password to continue.</p>
 
         <form onSubmit={handleSubmit} className="mt-8 space-y-4">
