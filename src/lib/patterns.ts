@@ -145,6 +145,28 @@ export const PATTERNS: Pattern[] = [
     featured: false,
     mockupImage: "/patterns/desert-palms-mockup.jpg",
     patternTile: "/patterns/desert-palms-tile.jpg",
+    lifestyle: [
+      {
+        src: "/patterns/pomelli_photoshoot-16.png",
+        alt: "Model in the Desert Palms tee leaning by a sun-filled window in a minimalist room, olive plant beside her",
+        kind: "model",
+      },
+      {
+        src: "/patterns/pomelli_photoshoot-15.png",
+        alt: "Close-up of the Desert Palms print on a female model — orange and olive leaf pattern in studio light",
+        kind: "model",
+      },
+      {
+        src: "/patterns/pomelli_photoshoot-13.png",
+        alt: "Desert Palms tee flat-lay on a wooden desk with a eucalyptus sprig, handwritten letter, and reading glasses",
+        kind: "flatlay",
+      },
+      {
+        src: "/patterns/pomelli_photoshoot-14.png",
+        alt: "Desert Palms tee laid flat on a wooden floor, shot top-down in strong dappled sunlight",
+        kind: "flatlay",
+      },
+    ],
   },
   {
     slug: "olive-garden",
@@ -157,6 +179,28 @@ export const PATTERNS: Pattern[] = [
     featured: false,
     mockupImage: "/patterns/olive-garden-mockup.jpg",
     patternTile: "/patterns/olive-garden-tile.jpg",
+    lifestyle: [
+      {
+        src: "/patterns/pomelli_photoshoot-12.png",
+        alt: "Female model waist-up in the Olive Garden tee — olive, pink, and cream lily print on a clean neutral wall",
+        kind: "model",
+      },
+      {
+        src: "/patterns/pomelli_photoshoot-11.png",
+        alt: "Young man wearing the Olive Garden tee inside a wooden geodesic cabin with a forested background",
+        kind: "model",
+      },
+      {
+        src: "/patterns/pomelli_photoshoot-9.png",
+        alt: "Olive Garden tee flat-lay on a wooden side table beside a small vase of lilies and a Mother's Day notecard, warm window light",
+        kind: "flatlay",
+      },
+      {
+        src: "/patterns/pomelli_photoshoot-10.png",
+        alt: "Olive Garden tee flat-lay on a wooden desk with wooden chopsticks, dappled shadow across the print",
+        kind: "flatlay",
+      },
+    ],
   },
   {
     slug: "pineapple-scarf",

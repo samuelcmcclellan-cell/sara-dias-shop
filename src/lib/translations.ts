@@ -43,6 +43,12 @@ export const t = {
     measurements_in: "All measurements are in inches.",
     featured_badge: "Featured",
 
+    // Editorial campaign section
+    editorial_eyebrow: "The Collection",
+    editorial_heading: "Art you wear. Printed to last.",
+    editorial_body: "Every design starts as an original painting. Sublimated edge-to-edge onto premium polyester — the color never cracks, fades, or peels.",
+    editorial_cta: "Explore the Collection",
+
     // Footer
     tagline: "Bold prints. Premium tees. $50.",
     footer_company: "Company",
@@ -98,6 +104,12 @@ export const t = {
     size_chart: "Tabela de Medidas",
     measurements_in: "Todas as medidas estão em polegadas.",
     featured_badge: "Destaque",
+
+    // Editorial campaign section
+    editorial_eyebrow: "A Coleção",
+    editorial_heading: "Arte que se usa. Impressa para durar.",
+    editorial_body: "Cada peça começa como uma pintura original. Sublimada de ponta a ponta em poliéster premium — a cor nunca racha, desbota ou descasca.",
+    editorial_cta: "Explorar a Coleção",
 
     // Footer
     tagline: "Estampas ousadas. Camisetas premium. R$120.",

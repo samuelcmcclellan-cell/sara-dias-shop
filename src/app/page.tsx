@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { Truck, Shield, Palette, Clock, ArrowRight, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/components/product-card";
@@ -10,35 +11,100 @@ import { getFeaturedPatterns } from "@/lib/patterns";
 import { useLanguage } from "@/lib/language-context";
 import { t } from "@/lib/translations";
 
+const FLATLAY_IMAGES = [
+  {
+    src: "/patterns/pomelli_photoshoot-9.png",
+    alt: "Olive Garden tee flat-lay beside a small vase of lilies and a Mother's Day notecard, warm window light",
+  },
+  {
+    src: "/patterns/pomelli_photoshoot-10.png",
+    alt: "Olive Garden tee flat-lay on a wooden desk with wooden chopsticks, dappled shadow",
+  },
+  {
+    src: "/patterns/pomelli_photoshoot-13.png",
+    alt: "Desert Palms tee flat-lay on a wooden desk with eucalyptus sprig and handwritten letter, editorial mood",
+  },
+  {
+    src: "/patterns/midnight-bloom-flatlay.webp",
+    alt: "Midnight Bloom tee flat-lay on a cream surface with pattern sketches around it",
+  },
+] as const;
+
 export default function HomePage() {
   const featured = getFeaturedPatterns();
   const { locale } = useLanguage();
   const tr = t[locale];
 
+  // Cycling flat-lay — SSR-safe: start at index 0, randomise on mount.
+  const [flatlayIdx, setFlatlayIdx] = useState(0);
+  const [flatlayVisible, setFlatlayVisible] = useState(true);
+
+  useEffect(() => {
+    const idx = Math.floor(Math.random() * FLATLAY_IMAGES.length);
+    if (idx === 0) return;
+
+    // Check reduced-motion preference; if set, swap instantly.
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReduced) {
+      setFlatlayIdx(idx);
+      return;
+    }
+
+    setFlatlayVisible(false);
+    const timer = window.setTimeout(() => {
+      setFlatlayIdx(idx);
+      setFlatlayVisible(true);
+    }, 160);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  const flatlay = FLATLAY_IMAGES[flatlayIdx];
+
   const lookbookTiles: LookbookTile[] = [
+    // T1 — hero tall portrait (Olive Garden studio model)
+    {
+      src: "/patterns/pomelli_photoshoot-12.png",
+      alt: "Female model in the Olive Garden tee — olive, pink, and cream lily print on a clean neutral wall",
+      name: "Olive Garden",
+      slug: "olive-garden",
+    },
+    // T2 — top-right, Midnight Bloom pastel studio
+    {
+      src: "/patterns/midnight-bloom-model-pastel.webp",
+      alt: "Model wearing the Midnight Bloom tee in a pastel studio set with geometric egg shapes",
+      name: "Midnight Bloom",
+      slug: "midnight-bloom",
+    },
+    // T3 — top-right small, Pineapple Scarf cabin
     {
       src: "/patterns/pineapple-scarf-model-cabin.webp",
       alt: "Model wearing the Pineapple Scarf tee in a wooden geodesic-cabin interior",
       name: "Pineapple Scarf",
       slug: "pineapple-scarf",
     },
+    // T4 — mid-right, Desert Palms studio close-up
     {
-      src: "/patterns/midnight-bloom-model-pastel.webp",
-      alt: "Model wearing the Midnight Bloom tee in a pastel studio set",
+      src: "/patterns/pomelli_photoshoot-15.png",
+      alt: "Close-up of the Desert Palms print on a female model in studio light",
+      name: "Desert Palms",
+      slug: "desert-palms",
+    },
+    // T5 — mid-right, Midnight Bloom cabin
+    {
+      src: "/patterns/midnight-bloom-model-cabin.webp",
+      alt: "Male model wearing the Midnight Bloom tee in a wooden geodesic-cabin interior",
       name: "Midnight Bloom",
       slug: "midnight-bloom",
     },
+    // T6 — cinematic wide strip (Desert Palms top-down dappled sunlight)
     {
-      src: "/patterns/pineapple-scarf-model-pastel.webp",
-      alt: "Model wearing the Pineapple Scarf tee amid pastel arches and geometric egg shapes",
-      name: "Pineapple Scarf",
-      slug: "pineapple-scarf",
-    },
-    {
-      src: "/patterns/midnight-bloom-model-studio.webp",
-      alt: "Male model wearing the Midnight Bloom tee against a cream studio backdrop",
-      name: "Midnight Bloom",
-      slug: "midnight-bloom",
+      src: "/patterns/pomelli_photoshoot-14.png",
+      alt: "Desert Palms tee laid flat on a wooden floor, shot top-down in strong dappled sunlight",
+      name: "Desert Palms",
+      slug: "desert-palms",
     },
   ];
 
@@ -108,18 +174,18 @@ export default function HomePage() {
                 Featured: Midnight Bloom
               </div>
             </div>
-            {/* Floating flat-lay — desktop only */}
+            {/* Floating flat-lay — desktop only, cycles on mount */}
             <div
               aria-hidden="true"
               className="absolute -bottom-8 -left-8 hidden w-40 overflow-hidden rounded-2xl border border-border bg-white shadow-xl sm:block sm:w-48 lg:w-56"
             >
               <div className="relative aspect-square w-full">
                 <Image
-                  src="/patterns/midnight-bloom-flatlay.webp"
+                  src={flatlay.src}
                   alt=""
                   fill
                   sizes="14rem"
-                  className="object-cover"
+                  className={`object-cover transition-opacity duration-150 motion-reduce:transition-none ${flatlayVisible ? "opacity-100" : "opacity-0"}`}
                 />
               </div>
             </div>
@@ -166,6 +232,44 @@ export default function HomePage() {
             <p className="mt-2 text-base text-muted">{tr.lookbook_sub}</p>
           </div>
           <LookbookGrid tiles={lookbookTiles} />
+        </div>
+      </section>
+
+      {/* EDITORIAL CAMPAIGN */}
+      <section className="overflow-hidden bg-primary">
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-[1fr_55%]">
+          {/* Text panel */}
+          <div className="flex flex-col justify-center px-6 py-16 sm:px-10 lg:py-28 lg:pl-16 lg:pr-12">
+            <span className="font-mono text-xs uppercase tracking-widest text-accent">
+              {tr.editorial_eyebrow}
+            </span>
+            <h2 className="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
+              {tr.editorial_heading}
+            </h2>
+            <p className="mt-6 max-w-md text-base text-white/65 lg:text-lg">
+              {tr.editorial_body}
+            </p>
+            <Button
+              asChild
+              size="xl"
+              className="mt-8 w-fit bg-accent text-white hover:bg-accent/85 shadow-lg"
+            >
+              <Link href="/collection">
+                {tr.editorial_cta} <ArrowRight />
+              </Link>
+            </Button>
+          </div>
+
+          {/* Image panel — Desert Palms top-down dappled sunlight */}
+          <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[580px]">
+            <Image
+              src="/patterns/pomelli_photoshoot-14.png"
+              alt="Desert Palms tee laid flat on a wooden floor, shot top-down in strong dappled sunlight — orange and olive leaf print"
+              fill
+              sizes="(min-width: 1024px) 55vw, 100vw"
+              className="object-cover"
+            />
+          </div>
         </div>
       </section>
 
