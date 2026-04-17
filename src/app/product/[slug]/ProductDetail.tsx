@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Check, Loader2, Minus, Plus, Ruler } from "lucide-react";
+import { ProductGallery } from "@/components/product-gallery";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -113,32 +113,7 @@ export function ProductDetail({ pattern }: { pattern: Pattern }) {
 
       <div className="grid gap-8 lg:grid-cols-[55%_45%] lg:gap-12">
         {/* Images */}
-        <div className="space-y-4">
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-border bg-light">
-            <Image
-              src={pattern.mockupImage}
-              alt={`${pattern.name} mockup`}
-              fill
-              sizes="(min-width: 1024px) 55vw, 100vw"
-              priority
-              className="object-cover"
-            />
-          </div>
-          <div className="space-y-2">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-muted">
-              Pattern Detail
-            </h3>
-            <div className="relative aspect-square w-full overflow-hidden rounded-xl border border-border bg-light">
-              <Image
-                src={pattern.patternTile}
-                alt={`${pattern.name} pattern tile detail`}
-                fill
-                sizes="(min-width: 1024px) 55vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
+        <ProductGallery pattern={pattern} />
 
         {/* Info */}
         <div className="flex flex-col gap-6">

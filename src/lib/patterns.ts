@@ -1,5 +1,11 @@
 export type PatternCategory = "tropical" | "botanical" | "abstract" | "retro";
 
+export interface LifestyleShot {
+  src: string;
+  alt: string;
+  kind: "flatlay" | "model" | "detail";
+}
+
 export interface Pattern {
   slug: string;
   name: string;
@@ -11,6 +17,8 @@ export interface Pattern {
   mockupImage: string;
   patternTile: string;
   printifyImageId?: string;
+  /** Optional lifestyle photography shot list. First entry is the "hero" shot. */
+  lifestyle?: LifestyleShot[];
 }
 
 export type ShirtSize = "S" | "M" | "L" | "XL" | "2XL" | "3XL";
@@ -78,6 +86,28 @@ export const PATTERNS: Pattern[] = [
     featured: true,
     mockupImage: "/patterns/midnight-bloom-mockup.jpg",
     patternTile: "/patterns/midnight-bloom-tile.jpg",
+    lifestyle: [
+      {
+        src: "/patterns/midnight-bloom-model-cabin.webp",
+        alt: "Model wearing the Midnight Bloom tee in a wooden geodesic-cabin interior",
+        kind: "model",
+      },
+      {
+        src: "/patterns/midnight-bloom-model-pastel.webp",
+        alt: "Model wearing the Midnight Bloom tee in a pastel studio set with geometric egg shapes",
+        kind: "model",
+      },
+      {
+        src: "/patterns/midnight-bloom-flatlay.webp",
+        alt: "Midnight Bloom tee flat-lay on a cream surface with pattern sketches around it",
+        kind: "flatlay",
+      },
+      {
+        src: "/patterns/midnight-bloom-model-studio.webp",
+        alt: "Male model wearing the Midnight Bloom tee against a cream studio backdrop",
+        kind: "model",
+      },
+    ],
   },
   {
     slug: "ikat-fire",
@@ -138,6 +168,28 @@ export const PATTERNS: Pattern[] = [
     featured: false,
     mockupImage: "/patterns/pineapple-scarf-mockup.jpg",
     patternTile: "/patterns/pineapple-scarf-tile.jpg",
+    lifestyle: [
+      {
+        src: "/patterns/pineapple-scarf-model-cabin.webp",
+        alt: "Model wearing the Pineapple Scarf tee in a wooden geodesic-cabin interior",
+        kind: "model",
+      },
+      {
+        src: "/patterns/pineapple-scarf-model-pastel.webp",
+        alt: "Model wearing the Pineapple Scarf tee amid pastel arches and geometric egg shapes",
+        kind: "model",
+      },
+      {
+        src: "/patterns/pineapple-scarf-flatlay.webp",
+        alt: "Pineapple Scarf tee flat-lay on a warm wood surface with a paper roll and decorative ball",
+        kind: "flatlay",
+      },
+      {
+        src: "/patterns/pineapple-scarf-model-studio.webp",
+        alt: "Model torso-crop wearing the Pineapple Scarf tee against a cream studio backdrop",
+        kind: "model",
+      },
+    ],
   },
   {
     slug: "hot-pink-palms",
@@ -159,6 +211,12 @@ export function getPattern(slug: string): Pattern | undefined {
 
 export function getFeaturedPatterns(): Pattern[] {
   return PATTERNS.filter((p) => p.featured);
+}
+
+/** The first lifestyle shot of the first featured pattern that has lifestyle photography. */
+export function getHeroLifestyle(): LifestyleShot | undefined {
+  const featuredWithLifestyle = PATTERNS.find((p) => p.featured && p.lifestyle?.length);
+  return featuredWithLifestyle?.lifestyle?.[0];
 }
 
 export function getPatternsByCategory(category: PatternCategory | "all"): Pattern[] {

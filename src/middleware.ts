@@ -1,43 +1,31 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 /**
- * Simple HTTP Basic Auth gate for the entire site.
+ * Password-only site gate.
  *
- * Enabled when BOTH BASIC_AUTH_USER and BASIC_AUTH_PASSWORD env vars are set.
- * If either is unset (e.g. in local dev), the middleware is a no-op.
+ * Enabled when SITE_PASSWORD (or BASIC_AUTH_PASSWORD) env var is set.
+ * On first visit the user is shown /auth — a single-field password page.
+ * On correct submission, /api/auth sets a __sub_auth cookie and the
+ * middleware lets every subsequent request through.
  */
 export function middleware(req: NextRequest) {
-  const expectedUser = process.env.BASIC_AUTH_USER;
-  const expectedPass = process.env.BASIC_AUTH_PASSWORD;
+  const sitePassword = process.env.SITE_PASSWORD ?? process.env.BASIC_AUTH_PASSWORD;
 
-  // Not configured → let everything through.
-  if (!expectedUser || !expectedPass) return NextResponse.next();
+  // Not configured → let everything through (local dev without env vars).
+  if (!sitePassword) return NextResponse.next();
 
-  const header = req.headers.get("authorization") ?? "";
-  if (header.toLowerCase().startsWith("basic ")) {
-    const encoded = header.slice(6).trim();
-    try {
-      const decoded = atob(encoded);
-      const sepIndex = decoded.indexOf(":");
-      if (sepIndex !== -1) {
-        const user = decoded.slice(0, sepIndex);
-        const pass = decoded.slice(sepIndex + 1);
-        if (user === expectedUser && pass === expectedPass) {
-          return NextResponse.next();
-        }
-      }
-    } catch {
-      // fall through to 401
-    }
-  }
+  const cookie = req.cookies.get("__sub_auth")?.value;
+  if (cookie === sitePassword) return NextResponse.next();
 
-  return new NextResponse("Authentication required", {
-    status: 401,
-    headers: { "WWW-Authenticate": 'Basic realm="SUB", charset="UTF-8"' },
-  });
+  // Not authenticated — redirect to the password page.
+  const url = req.nextUrl.clone();
+  url.pathname = "/auth";
+  return NextResponse.redirect(url);
 }
 
 export const config = {
-  // Protect everything except Next internals and static assets.
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|patterns/).*)"],
+  matcher: [
+    // Protect everything except the auth page itself, Next internals, and static assets.
+    "/((?!auth|api/auth|_next/static|_next/image|favicon.ico|patterns/).*)",
+  ],
 };

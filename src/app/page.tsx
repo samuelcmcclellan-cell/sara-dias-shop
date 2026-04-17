@@ -1,11 +1,40 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Truck, Shield, Palette, Clock, ArrowRight, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/components/product-card";
+import { LookbookGrid, type LookbookTile } from "@/components/lookbook-grid";
 import { getFeaturedPatterns } from "@/lib/patterns";
 
 export default function HomePage() {
   const featured = getFeaturedPatterns();
+
+  const lookbookTiles: LookbookTile[] = [
+    {
+      src: "/patterns/pineapple-scarf-model-cabin.webp",
+      alt: "Model wearing the Pineapple Scarf tee in a wooden geodesic-cabin interior",
+      name: "Pineapple Scarf",
+      slug: "pineapple-scarf",
+    },
+    {
+      src: "/patterns/midnight-bloom-model-pastel.webp",
+      alt: "Model wearing the Midnight Bloom tee in a pastel studio set",
+      name: "Midnight Bloom",
+      slug: "midnight-bloom",
+    },
+    {
+      src: "/patterns/pineapple-scarf-model-pastel.webp",
+      alt: "Model wearing the Pineapple Scarf tee amid pastel arches and geometric egg shapes",
+      name: "Pineapple Scarf",
+      slug: "pineapple-scarf",
+    },
+    {
+      src: "/patterns/midnight-bloom-model-studio.webp",
+      alt: "Male model wearing the Midnight Bloom tee against a cream studio backdrop",
+      name: "Midnight Bloom",
+      slug: "midnight-bloom",
+    },
+  ];
 
   return (
     <div className="flex flex-col">
@@ -52,25 +81,40 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Hero visual — featured design preview */}
-          {featured[0] && (
-            <div className="relative lg:ml-auto lg:max-w-xl">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border bg-white shadow-xl">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={featured[0].mockupImage}
-                  alt={`${featured[0].name} mockup`}
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute top-4 right-4 rounded-full bg-accent px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-white">
-                  $30
-                </div>
-                <div className="absolute bottom-4 left-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-primary backdrop-blur">
-                  Featured: {featured[0].name}
-                </div>
+          {/* Hero visual — split: primary lifestyle shot + floating flat-lay */}
+          <div className="relative lg:ml-auto lg:max-w-xl">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border bg-white shadow-xl">
+              <Image
+                src="/patterns/midnight-bloom-model-cabin.webp"
+                alt="Model wearing the Midnight Bloom tee in a wooden geodesic-cabin interior"
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                priority
+                className="object-cover"
+              />
+              <div className="absolute top-4 right-4 rounded-full bg-accent px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-white">
+                $30
+              </div>
+              <div className="absolute bottom-4 left-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-primary backdrop-blur">
+                Featured: Midnight Bloom
               </div>
             </div>
-          )}
+            {/* Floating flat-lay — desktop only */}
+            <div
+              aria-hidden="true"
+              className="absolute -bottom-8 -left-8 hidden w-40 overflow-hidden rounded-2xl border border-border bg-white shadow-xl sm:block sm:w-48 lg:w-56"
+            >
+              <div className="relative aspect-square w-full">
+                <Image
+                  src="/patterns/midnight-bloom-flatlay.webp"
+                  alt=""
+                  fill
+                  sizes="14rem"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -102,6 +146,19 @@ export default function HomePage() {
           <p className="mt-2 text-xs text-muted">
             Preview images — final production art will be delivered unwatermarked.
           </p>
+        </div>
+      </section>
+
+      {/* IN THE WILD — lookbook */}
+      <section className="bg-white pb-20 pt-4 sm:pb-24 sm:pt-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 max-w-2xl">
+            <h2 className="text-4xl font-black tracking-tight text-primary sm:text-5xl">
+              In the wild
+            </h2>
+            <p className="mt-2 text-base text-muted">Sara&apos;s patterns, photographed.</p>
+          </div>
+          <LookbookGrid tiles={lookbookTiles} />
         </div>
       </section>
 
@@ -178,22 +235,14 @@ export default function HomePage() {
             </div>
 
             <div className="order-1 lg:order-2">
-              <div
-                className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border shadow-xl"
-                style={{
-                  background:
-                    "linear-gradient(135deg,#FF3D81 0%,#FF7AAE 35%,#FDE68A 70%,#059669 100%)",
-                }}
-              >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-white/95 drop-shadow-sm">
-                    <div className="font-black text-5xl tracking-tight sm:text-6xl">SARA</div>
-                    <div className="mt-1 font-black text-5xl tracking-tight sm:text-6xl">DIAS</div>
-                    <div className="mt-4 text-xs font-semibold uppercase tracking-[0.25em]">
-                      Pattern Designer · Brazil
-                    </div>
-                  </div>
-                </div>
+              <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border shadow-xl">
+                <Image
+                  src="/patterns/pineapple-scarf-model-cabin.webp"
+                  alt="Portrait of Sara Dias photographed in a wooden geodesic-cabin interior"
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className="object-cover object-center"
+                />
               </div>
             </div>
           </div>

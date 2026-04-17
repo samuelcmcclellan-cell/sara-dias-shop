@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import { ProductCard } from "@/components/product-card";
 import {
   Select,
@@ -34,14 +35,28 @@ export default function CollectionPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <header className="mb-8">
-        <h1 className="text-4xl font-black tracking-tight text-primary sm:text-5xl">
-          The Collection
-        </h1>
-        <p className="mt-2 text-base text-muted">
-          Exclusive all-over-print patterns by Sara Dias
-        </p>
-      </header>
+      <div className="relative mb-10 overflow-hidden rounded-2xl border border-border aspect-[16/9] md:aspect-[21/9]">
+        <Image
+          src="/patterns/midnight-bloom-model-pastel.webp"
+          alt="Model wearing the Midnight Bloom tee in a pastel studio set"
+          fill
+          priority
+          sizes="(min-width: 1024px) 80vw, 100vw"
+          className="object-cover"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent"
+        />
+        <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10">
+          <h1 className="text-4xl font-black tracking-tight text-white drop-shadow sm:text-5xl lg:text-6xl">
+            The Collection
+          </h1>
+          <p className="mt-2 text-base text-white/90 drop-shadow sm:text-lg">
+            Exclusive all-over-print patterns by Sara Dias
+          </p>
+        </div>
+      </div>
 
       {/* Filter + sort toolbar */}
       <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
