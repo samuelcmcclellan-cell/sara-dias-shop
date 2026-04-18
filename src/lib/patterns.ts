@@ -73,8 +73,30 @@ export const PATTERNS: Pattern[] = [
     colors: ["#C72C6D", "#7FE3C1", "#4A0E2B", "#2D8071"],
     price: 5000,
     featured: true,
-    mockupImage: "/patterns/fuchsia-fronds-mockup.jpg",
+    mockupImage: "/patterns/fuchsia-fronds-model-studio.png",
     patternTile: "/patterns/fuchsia-fronds-tile.jpg",
+    lifestyle: [
+      {
+        src: "/patterns/fuchsia-fronds-model-studio.png",
+        alt: "Female model wearing the Fuchsia Fronds tee against a warm cream wall — magenta ground with jade and mint palm leaves",
+        kind: "model",
+      },
+      {
+        src: "/patterns/fuchsia-fronds-model-terracotta.png",
+        alt: "Female model with an afro wearing the Fuchsia Fronds tee in front of a terracotta wall, linen pants",
+        kind: "model",
+      },
+      {
+        src: "/patterns/fuchsia-fronds-flatlay-styled.png",
+        alt: "Fuchsia Fronds tee flat-lay on a magenta surface with a dried palm frond beside it",
+        kind: "flatlay",
+      },
+      {
+        src: "/patterns/fuchsia-fronds-flatlay.png",
+        alt: "Fuchsia Fronds tee flat-lay on a natural linen surface",
+        kind: "flatlay",
+      },
+    ],
   },
   {
     slug: "midnight-bloom",
@@ -245,8 +267,45 @@ export const PATTERNS: Pattern[] = [
     colors: ["#E8308F", "#4AD8C8", "#F28661", "#EFDBA6"],
     price: 5000,
     featured: false,
-    mockupImage: "/patterns/hot-pink-palms-mockup.jpg",
+    mockupImage: "/patterns/hot-pink-palms-model-studio.png",
     patternTile: "/patterns/hot-pink-palms-tile.jpg",
+    lifestyle: [
+      {
+        src: "/patterns/hot-pink-palms-model-studio.png",
+        alt: "Female model waist-up in the Hot Pink Palms tee — cream base with hot-pink, aqua, and orange palm strokes, studio light",
+        kind: "model",
+      },
+      {
+        src: "/patterns/hot-pink-palms-model-window.png",
+        alt: "Female model seated on a wooden chair with a coffee mug, wearing the Hot Pink Palms tee by a sunlit window in a minimalist room",
+        kind: "model",
+      },
+      {
+        src: "/patterns/hot-pink-palms-model-courtyard.png",
+        alt: "Female model outdoors in the Hot Pink Palms tee, olive tree and pale stone wall behind her",
+        kind: "model",
+      },
+      {
+        src: "/patterns/hot-pink-palms-model-garden.png",
+        alt: "Male model in the Hot Pink Palms tee outdoors, Mediterranean stone setting with olive foliage",
+        kind: "model",
+      },
+      {
+        src: "/patterns/hot-pink-palms-flatlay.png",
+        alt: "Hot Pink Palms tee laid flat on a wooden floor with dappled sunlight across the print",
+        kind: "flatlay",
+      },
+      {
+        src: "/patterns/hot-pink-palms-flatlay-styled.png",
+        alt: "Folded Hot Pink Palms tee styled with a pale peony, reading glasses, and a small vase on stone",
+        kind: "flatlay",
+      },
+      {
+        src: "/patterns/hot-pink-palms-flatlay-sand.png",
+        alt: "Hot Pink Palms tee laid flat on a sand-toned linen surface",
+        kind: "flatlay",
+      },
+    ],
   },
 ];
 
