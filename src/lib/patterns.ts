@@ -165,6 +165,21 @@ export const PATTERNS: Pattern[] = [
         kind: "model",
       },
       {
+        src: "/patterns/ikat-fire-model-courtyard.png",
+        alt: "Female model wearing the Ikat Fire tee outdoors against a sun-warmed sage wall with dappled foliage shadow",
+        kind: "model",
+      },
+      {
+        src: "/patterns/ikat-fire-model-linen.png",
+        alt: "Female model wearing the Ikat Fire tee beside a cream linen curtain in a sunlit minimalist room",
+        kind: "model",
+      },
+      {
+        src: "/patterns/ikat-fire-model-neutral.png",
+        alt: "Male model wearing the Ikat Fire tee against a clean neutral backdrop",
+        kind: "model",
+      },
+      {
         src: "/patterns/ikat-fire-model-archway.png",
         alt: "Male model wearing the Ikat Fire tee framed in a warm sandstone archway",
         kind: "model",
@@ -230,11 +245,6 @@ export const PATTERNS: Pattern[] = [
       {
         src: "/patterns/desert-palms-model-window.png",
         alt: "Model in the Desert Palms tee leaning by a sun-filled window in a minimalist room, olive plant beside her",
-        kind: "model",
-      },
-      {
-        src: "/patterns/desert-palms-model-studio.png",
-        alt: "Close-up of the Desert Palms print on a female model — orange and olive leaf pattern in studio light",
         kind: "model",
       },
       {
@@ -326,17 +336,12 @@ export const PATTERNS: Pattern[] = [
     colors: ["#E8308F", "#4AD8C8", "#F28661", "#EFDBA6"],
     price: 5000,
     featured: false,
-    mockupImage: "/patterns/hot-pink-palms-model-studio.png",
+    mockupImage: "/patterns/hot-pink-palms-model-linen.png",
     patternTile: "/patterns/hot-pink-palms-tile.jpg",
     lifestyle: [
       {
-        src: "/patterns/hot-pink-palms-model-studio.png",
-        alt: "Female model waist-up in the Hot Pink Palms tee — cream base with hot-pink, aqua, and orange palm strokes, studio light",
-        kind: "model",
-      },
-      {
-        src: "/patterns/hot-pink-palms-model-window.png",
-        alt: "Female model seated on a wooden chair with a coffee mug, wearing the Hot Pink Palms tee by a sunlit window in a minimalist room",
+        src: "/patterns/hot-pink-palms-model-linen.png",
+        alt: "Female model in the Hot Pink Palms tee beside a sunlit window, linen pants — cream base with hot-pink, aqua, and orange palm strokes",
         kind: "model",
       },
       {
@@ -350,18 +355,8 @@ export const PATTERNS: Pattern[] = [
         kind: "model",
       },
       {
-        src: "/patterns/hot-pink-palms-flatlay.png",
-        alt: "Hot Pink Palms tee laid flat on a wooden floor with dappled sunlight across the print",
-        kind: "flatlay",
-      },
-      {
         src: "/patterns/hot-pink-palms-flatlay-styled.png",
         alt: "Folded Hot Pink Palms tee styled with a pale peony, reading glasses, and a small vase on stone",
-        kind: "flatlay",
-      },
-      {
-        src: "/patterns/hot-pink-palms-flatlay-sand.png",
-        alt: "Hot Pink Palms tee laid flat on a sand-toned linen surface",
         kind: "flatlay",
       },
     ],

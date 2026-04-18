@@ -85,10 +85,10 @@ export default function HomePage() {
       name: "Pineapple Scarf",
       slug: "pineapple-scarf",
     },
-    // T4 — mid-right, Desert Palms studio close-up
+    // T4 — mid-right, Desert Palms model by sunlit window
     {
-      src: "/patterns/desert-palms-model-studio.png",
-      alt: "Close-up of the Desert Palms print on a female model in studio light",
+      src: "/patterns/desert-palms-model-window.png",
+      alt: "Model in the Desert Palms tee leaning by a sun-filled window, olive plant beside her",
       name: "Desert Palms",
       slug: "desert-palms",
     },
