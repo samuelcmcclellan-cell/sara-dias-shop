@@ -13,15 +13,15 @@ import { t } from "@/lib/translations";
 
 const FLATLAY_IMAGES = [
   {
-    src: "/patterns/pomelli_photoshoot-9.png",
+    src: "/patterns/olive-garden-flatlay-mothersday.png",
     alt: "Olive Garden tee flat-lay beside a small vase of lilies and a Mother's Day notecard, warm window light",
   },
   {
-    src: "/patterns/pomelli_photoshoot-10.png",
-    alt: "Olive Garden tee flat-lay on a wooden desk with wooden chopsticks, dappled shadow",
+    src: "/patterns/olive-garden-flatlay.png",
+    alt: "Olive Garden tee flat-lay on a wooden desk with bamboo chopsticks, dappled shadow",
   },
   {
-    src: "/patterns/pomelli_photoshoot-13.png",
+    src: "/patterns/desert-palms-flatlay-desk.png",
     alt: "Desert Palms tee flat-lay on a wooden desk with eucalyptus sprig and handwritten letter, editorial mood",
   },
   {
@@ -66,7 +66,7 @@ export default function HomePage() {
   const lookbookTiles: LookbookTile[] = [
     // T1 — hero tall portrait (Olive Garden studio model)
     {
-      src: "/patterns/pomelli_photoshoot-12.png",
+      src: "/patterns/olive-garden-model-studio.png",
       alt: "Female model in the Olive Garden tee — olive, pink, and cream lily print on a clean neutral wall",
       name: "Olive Garden",
       slug: "olive-garden",
@@ -87,7 +87,7 @@ export default function HomePage() {
     },
     // T4 — mid-right, Desert Palms studio close-up
     {
-      src: "/patterns/pomelli_photoshoot-15.png",
+      src: "/patterns/desert-palms-model-studio.png",
       alt: "Close-up of the Desert Palms print on a female model in studio light",
       name: "Desert Palms",
       slug: "desert-palms",
@@ -101,7 +101,7 @@ export default function HomePage() {
     },
     // T6 — cinematic wide strip (Desert Palms top-down dappled sunlight)
     {
-      src: "/patterns/pomelli_photoshoot-14.png",
+      src: "/patterns/desert-palms-flatlay.png",
       alt: "Desert Palms tee laid flat on a wooden floor, shot top-down in strong dappled sunlight",
       name: "Desert Palms",
       slug: "desert-palms",
@@ -263,7 +263,7 @@ export default function HomePage() {
           {/* Image panel — Desert Palms top-down dappled sunlight */}
           <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[580px]">
             <Image
-              src="/patterns/pomelli_photoshoot-14.png"
+              src="/patterns/desert-palms-flatlay.png"
               alt="Desert Palms tee laid flat on a wooden floor, shot top-down in strong dappled sunlight — orange and olive leaf print"
               fill
               sizes="(min-width: 1024px) 55vw, 100vw"

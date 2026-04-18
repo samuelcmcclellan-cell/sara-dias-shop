@@ -85,9 +85,14 @@ export const PATTERNS: Pattern[] = [
     colors: ["#0E0F1E", "#E8422E", "#F0A022", "#2D8B82"],
     price: 5000,
     featured: true,
-    mockupImage: "/patterns/midnight-bloom-mockup.jpg",
+    mockupImage: "/patterns/midnight-bloom-model-studio.webp",
     patternTile: "/patterns/midnight-bloom-tile.jpg",
     lifestyle: [
+      {
+        src: "/patterns/midnight-bloom-model-studio.webp",
+        alt: "Male model wearing the Midnight Bloom tee against a cream studio backdrop",
+        kind: "model",
+      },
       {
         src: "/patterns/midnight-bloom-model-cabin.webp",
         alt: "Model wearing the Midnight Bloom tee in a wooden geodesic-cabin interior",
@@ -102,11 +107,6 @@ export const PATTERNS: Pattern[] = [
         src: "/patterns/midnight-bloom-flatlay.webp",
         alt: "Midnight Bloom tee flat-lay on a cream surface with pattern sketches around it",
         kind: "flatlay",
-      },
-      {
-        src: "/patterns/midnight-bloom-model-studio.webp",
-        alt: "Male model wearing the Midnight Bloom tee against a cream studio backdrop",
-        kind: "model",
       },
     ],
   },
@@ -143,26 +143,26 @@ export const PATTERNS: Pattern[] = [
     colors: ["#D84A1E", "#F4C6A8", "#2B2F2A", "#F5E6D8"],
     price: 5000,
     featured: false,
-    mockupImage: "/patterns/desert-palms-mockup.jpg",
+    mockupImage: "/patterns/desert-palms-model-window.png",
     patternTile: "/patterns/desert-palms-tile.jpg",
     lifestyle: [
       {
-        src: "/patterns/pomelli_photoshoot-16.png",
+        src: "/patterns/desert-palms-model-window.png",
         alt: "Model in the Desert Palms tee leaning by a sun-filled window in a minimalist room, olive plant beside her",
         kind: "model",
       },
       {
-        src: "/patterns/pomelli_photoshoot-15.png",
+        src: "/patterns/desert-palms-model-studio.png",
         alt: "Close-up of the Desert Palms print on a female model — orange and olive leaf pattern in studio light",
         kind: "model",
       },
       {
-        src: "/patterns/pomelli_photoshoot-13.png",
+        src: "/patterns/desert-palms-flatlay-desk.png",
         alt: "Desert Palms tee flat-lay on a wooden desk with a eucalyptus sprig, handwritten letter, and reading glasses",
         kind: "flatlay",
       },
       {
-        src: "/patterns/pomelli_photoshoot-14.png",
+        src: "/patterns/desert-palms-flatlay.png",
         alt: "Desert Palms tee laid flat on a wooden floor, shot top-down in strong dappled sunlight",
         kind: "flatlay",
       },
@@ -177,27 +177,27 @@ export const PATTERNS: Pattern[] = [
     colors: ["#5E6B2E", "#F2C9D1", "#E8D9BF", "#D25C3E"],
     price: 5000,
     featured: false,
-    mockupImage: "/patterns/olive-garden-mockup.jpg",
+    mockupImage: "/patterns/olive-garden-model-studio.png",
     patternTile: "/patterns/olive-garden-tile.jpg",
     lifestyle: [
       {
-        src: "/patterns/pomelli_photoshoot-12.png",
+        src: "/patterns/olive-garden-model-studio.png",
         alt: "Female model waist-up in the Olive Garden tee — olive, pink, and cream lily print on a clean neutral wall",
         kind: "model",
       },
       {
-        src: "/patterns/pomelli_photoshoot-11.png",
-        alt: "Young man wearing the Olive Garden tee inside a wooden geodesic cabin with a forested background",
+        src: "/patterns/olive-garden-model-cabin.png",
+        alt: "Young man wearing the Olive Garden print inside a wooden geodesic cabin with a forested background",
         kind: "model",
       },
       {
-        src: "/patterns/pomelli_photoshoot-9.png",
+        src: "/patterns/olive-garden-flatlay-mothersday.png",
         alt: "Olive Garden tee flat-lay on a wooden side table beside a small vase of lilies and a Mother's Day notecard, warm window light",
         kind: "flatlay",
       },
       {
-        src: "/patterns/pomelli_photoshoot-10.png",
-        alt: "Olive Garden tee flat-lay on a wooden desk with wooden chopsticks, dappled shadow across the print",
+        src: "/patterns/olive-garden-flatlay.png",
+        alt: "Olive Garden tee flat-lay on a wooden desk with bamboo chopsticks, dappled shadow across the print",
         kind: "flatlay",
       },
     ],
@@ -211,9 +211,14 @@ export const PATTERNS: Pattern[] = [
     colors: ["#F2C585", "#D8306C", "#2D7B3A", "#F4B82A"],
     price: 5000,
     featured: false,
-    mockupImage: "/patterns/pineapple-scarf-mockup.jpg",
+    mockupImage: "/patterns/pineapple-scarf-model-studio.webp",
     patternTile: "/patterns/pineapple-scarf-tile.jpg",
     lifestyle: [
+      {
+        src: "/patterns/pineapple-scarf-model-studio.webp",
+        alt: "Model torso-crop wearing the Pineapple Scarf tee against a cream studio backdrop",
+        kind: "model",
+      },
       {
         src: "/patterns/pineapple-scarf-model-cabin.webp",
         alt: "Model wearing the Pineapple Scarf tee in a wooden geodesic-cabin interior",
@@ -228,11 +233,6 @@ export const PATTERNS: Pattern[] = [
         src: "/patterns/pineapple-scarf-flatlay.webp",
         alt: "Pineapple Scarf tee flat-lay on a warm wood surface with a paper roll and decorative ball",
         kind: "flatlay",
-      },
-      {
-        src: "/patterns/pineapple-scarf-model-studio.webp",
-        alt: "Model torso-crop wearing the Pineapple Scarf tee against a cream studio backdrop",
-        kind: "model",
       },
     ],
   },

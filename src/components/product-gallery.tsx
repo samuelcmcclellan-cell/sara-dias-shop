@@ -22,15 +22,21 @@ interface GalleryImage {
 export function ProductGallery({ pattern }: { pattern: Pattern }) {
   const images = useMemo<GalleryImage[]>(() => {
     const list: GalleryImage[] = [];
+    const seen = new Set<string>();
+    const push = (img: GalleryImage) => {
+      if (seen.has(img.src)) return;
+      seen.add(img.src);
+      list.push(img);
+    };
     for (const shot of pattern.lifestyle ?? []) {
-      list.push({ src: shot.src, alt: shot.alt, role: "lifestyle" });
+      push({ src: shot.src, alt: shot.alt, role: "lifestyle" });
     }
-    list.push({
+    push({
       src: pattern.mockupImage,
       alt: `${pattern.name} tee mockup — full print`,
       role: "mockup",
     });
-    list.push({
+    push({
       src: pattern.patternTile,
       alt: `${pattern.name} pattern tile detail`,
       role: "tile",
