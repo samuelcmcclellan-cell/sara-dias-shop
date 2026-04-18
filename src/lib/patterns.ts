@@ -107,12 +107,27 @@ export const PATTERNS: Pattern[] = [
     colors: ["#0E0F1E", "#E8422E", "#F0A022", "#2D8B82"],
     price: 5000,
     featured: true,
-    mockupImage: "/patterns/midnight-bloom-model-studio.webp",
+    mockupImage: "/patterns/midnight-bloom-model-studio.png",
     patternTile: "/patterns/midnight-bloom-tile.jpg",
     lifestyle: [
       {
-        src: "/patterns/midnight-bloom-model-studio.webp",
-        alt: "Male model wearing the Midnight Bloom tee against a cream studio backdrop",
+        src: "/patterns/midnight-bloom-model-studio.png",
+        alt: "Female model wearing the Midnight Bloom tee against a dark studio backdrop — black base with teal leaves, orange hibiscus, and gold dot detail",
+        kind: "model",
+      },
+      {
+        src: "/patterns/midnight-bloom-model-sage.png",
+        alt: "Female model wearing the Midnight Bloom tee against a soft sage wall",
+        kind: "model",
+      },
+      {
+        src: "/patterns/midnight-bloom-model-doorway.png",
+        alt: "Female model wearing the Midnight Bloom tee framed in a warm wooden doorway",
+        kind: "model",
+      },
+      {
+        src: "/patterns/midnight-bloom-model-home.png",
+        alt: "Female model wearing the Midnight Bloom tee in a minimalist sunlit living room beside an olive plant",
         kind: "model",
       },
       {
