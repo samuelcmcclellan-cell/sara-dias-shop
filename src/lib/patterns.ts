@@ -156,14 +156,9 @@ export const PATTERNS: Pattern[] = [
     colors: ["#E8418A", "#F57C1F", "#EDB536", "#7A8B3A"],
     price: 5000,
     featured: true,
-    mockupImage: "/patterns/ikat-fire-model-studio.png",
+    mockupImage: "/patterns/ikat-fire-model-linen.png",
     patternTile: "/patterns/ikat-fire-tile.jpg",
     lifestyle: [
-      {
-        src: "/patterns/ikat-fire-model-studio.png",
-        alt: "Female model wearing the Ikat Fire tee in studio light — tangerine, olive, mustard, and cream ikat zigzags with hot-pink accents",
-        kind: "model",
-      },
       {
         src: "/patterns/ikat-fire-model-courtyard.png",
         alt: "Female model wearing the Ikat Fire tee outdoors against a sun-warmed sage wall with dappled foliage shadow",
