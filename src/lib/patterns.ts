@@ -175,8 +175,30 @@ export const PATTERNS: Pattern[] = [
     colors: ["#8B3A9E", "#E63F7D", "#2FB8A0", "#1F4D3F"],
     price: 5000,
     featured: false,
-    mockupImage: "/patterns/painterly-rush-mockup.jpg",
+    mockupImage: "/patterns/painterly-rush-model-studio.png",
     patternTile: "/patterns/painterly-rush-tile.jpg",
+    lifestyle: [
+      {
+        src: "/patterns/painterly-rush-model-studio.png",
+        alt: "Female model wearing the Painterly Rush tee in studio light — wide brushstrokes in purple, watermelon, and jade on deep forest",
+        kind: "model",
+      },
+      {
+        src: "/patterns/painterly-rush-model-easel.png",
+        alt: "Female model wearing the Painterly Rush tee beside a painter's easel in a sunlit room, linen pants",
+        kind: "model",
+      },
+      {
+        src: "/patterns/painterly-rush-flatlay-stone.png",
+        alt: "Painterly Rush tee laid flat on a travertine stone slab in warm sunlight",
+        kind: "flatlay",
+      },
+      {
+        src: "/patterns/painterly-rush-flatlay-mothersday.png",
+        alt: "Folded Painterly Rush tee styled on a wooden table with a pale peony, dried lavender, and a Mother's Day notecard",
+        kind: "flatlay",
+      },
+    ],
   },
   {
     slug: "desert-palms",
