@@ -39,11 +39,11 @@ export default async function ProductPage({
 
       {related.length > 0 && (
         <section className="border-t border-border bg-light">
-          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-            <h2 className="mb-8 text-2xl font-black tracking-tight text-primary sm:text-3xl">
+          <div className="site-container py-16 xl:py-24">
+            <h2 className="mb-8 text-2xl font-black tracking-tight text-primary sm:text-3xl xl:mb-12 xl:text-4xl">
               You Might Also Like
             </h2>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
               {related.map((p) => (
                 <ProductCard key={p.slug} pattern={p} />
               ))}

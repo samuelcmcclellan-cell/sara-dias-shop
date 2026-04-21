@@ -14,19 +14,19 @@ export function AboutContent() {
   return (
     <div className="flex flex-col">
       {/* EDITORIAL HERO */}
-      <section className="bg-white py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
+      <section className="bg-white py-20 sm:py-24 xl:py-32">
+        <div className="site-container">
+          <div className="grid items-center gap-12 lg:grid-cols-2 xl:gap-20">
             <div>
               <span className="inline-flex items-center gap-2 rounded-full border border-border bg-light px-3 py-1 text-xs font-medium uppercase tracking-wider text-muted">
                 {tr.about_eyebrow}
               </span>
-              <h1 className="mt-4 text-5xl font-black leading-[1.05] tracking-tight text-primary sm:text-6xl lg:text-7xl">
+              <h1 className="mt-4 text-5xl font-black leading-[1.05] tracking-tight text-primary sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
                 {tr.about_heading_line1}
                 <br />
                 {tr.about_heading_line2}
               </h1>
-              <p className="mt-6 max-w-lg text-base leading-relaxed text-muted sm:text-lg">
+              <p className="mt-6 max-w-lg text-base leading-relaxed text-muted sm:text-lg xl:text-xl">
                 {tr.about_intro}
               </p>
             </div>
@@ -36,7 +36,7 @@ export function AboutContent() {
                 alt="Model wearing the Pineapple Scarf tee against pastel arches and geometric egg shapes"
                 fill
                 priority
-                sizes="(min-width: 1024px) 40vw, 100vw"
+                sizes="(min-width: 1024px) 45vw, 100vw"
                 className="object-cover"
               />
             </div>
@@ -45,35 +45,35 @@ export function AboutContent() {
       </section>
 
       {/* OUR STORY */}
-      <section className="bg-light py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+      <section className="bg-light py-20 sm:py-24 xl:py-32">
+        <div className="site-container">
+          <div className="mx-auto max-w-2xl text-center xl:max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium uppercase tracking-wider text-muted">
               {tr.about_story_eyebrow}
             </span>
-            <h2 className="mt-4 text-4xl font-black tracking-tight text-primary sm:text-5xl">
+            <h2 className="mt-4 text-4xl font-black tracking-tight text-primary sm:text-5xl xl:text-6xl">
               {tr.about_story_heading}
             </h2>
           </div>
 
-          <div className="mt-14 grid items-center gap-10 lg:grid-cols-2">
+          <div className="mt-14 grid items-center gap-10 lg:grid-cols-2 xl:mt-20 xl:gap-16">
             <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border shadow-sm">
               <Image
                 src="/patterns/midnight-bloom-flatlay.webp"
                 alt="Midnight Bloom tee flat-lay on a cream surface with pattern sketches around it"
                 fill
-                sizes="(min-width: 1024px) 40vw, 100vw"
+                sizes="(min-width: 1024px) 45vw, 100vw"
                 className="object-cover"
               />
             </div>
-            <div className="space-y-4 text-base leading-relaxed text-muted sm:text-lg">
+            <div className="space-y-4 text-base leading-relaxed text-muted sm:text-lg xl:text-xl">
               <p>{tr.about_story_p1}</p>
               <p>{tr.about_story_p2}</p>
             </div>
           </div>
 
-          <div className="mt-10 grid items-center gap-10 lg:grid-cols-2">
-            <div className="space-y-4 text-base leading-relaxed text-muted sm:text-lg lg:order-2">
+          <div className="mt-10 grid items-center gap-10 lg:grid-cols-2 xl:mt-16 xl:gap-16">
+            <div className="space-y-4 text-base leading-relaxed text-muted sm:text-lg lg:order-2 xl:text-xl">
               <p>
                 {tr.about_story_p3_prefix}{" "}
                 <span className="font-semibold text-primary">Sara Dias</span>
@@ -86,7 +86,7 @@ export function AboutContent() {
                 src="/patterns/pineapple-scarf-flatlay.webp"
                 alt="Pineapple Scarf tee flat-lay on a warm wood surface with a paper roll and decorative ball"
                 fill
-                sizes="(min-width: 1024px) 40vw, 100vw"
+                sizes="(min-width: 1024px) 45vw, 100vw"
                 className="object-cover"
               />
             </div>
@@ -95,15 +95,15 @@ export function AboutContent() {
       </section>
 
       {/* MEET SARA */}
-      <section className="bg-white py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
+      <section className="bg-white py-20 sm:py-24 xl:py-32">
+        <div className="site-container">
+          <div className="grid items-center gap-12 lg:grid-cols-2 xl:gap-20">
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border shadow-xl">
               <Image
                 src="/patterns/midnight-bloom-model-cabin.webp"
                 alt="Portrait shot in a wooden geodesic-cabin interior"
                 fill
-                sizes="(min-width: 1024px) 40vw, 100vw"
+                sizes="(min-width: 1024px) 45vw, 100vw"
                 className="object-cover"
               />
             </div>
@@ -111,10 +111,10 @@ export function AboutContent() {
               <span className="inline-flex items-center gap-2 rounded-full border border-border bg-light px-3 py-1 text-xs font-medium uppercase tracking-wider text-muted">
                 {tr.about_artist_eyebrow}
               </span>
-              <h2 className="mt-4 text-4xl font-black tracking-tight text-primary sm:text-5xl">
+              <h2 className="mt-4 text-4xl font-black tracking-tight text-primary sm:text-5xl xl:text-6xl">
                 Sara Dias
               </h2>
-              <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
+              <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg xl:text-xl">
                 {tr.about_artist_bio}
               </p>
               <a
@@ -133,12 +133,12 @@ export function AboutContent() {
 
       {/* FINAL CTA */}
       <section className="bg-accent">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="site-container py-20 xl:py-28">
           <div className="flex flex-col items-center gap-6 text-center sm:gap-8">
-            <h2 className="text-4xl font-black tracking-tight text-white sm:text-5xl">
+            <h2 className="text-4xl font-black tracking-tight text-white sm:text-5xl xl:text-6xl">
               {tr.about_cta_heading}
             </h2>
-            <p className="max-w-xl text-base text-white/90 sm:text-lg">
+            <p className="max-w-xl text-base text-white/90 sm:text-lg xl:text-xl">
               {tr.about_cta_body}
             </p>
             <Button

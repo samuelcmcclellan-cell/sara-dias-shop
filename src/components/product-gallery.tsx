@@ -47,7 +47,7 @@ export function ProductGallery({ pattern }: { pattern: Pattern }) {
   // Legacy mode — visually identical to the pre-existing stacked layout.
   if (!pattern.lifestyle || pattern.lifestyle.length === 0) {
     return (
-      <div className="space-y-4">
+      <div className="space-y-4 xl:space-y-5">
         <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-border bg-light">
           <Image
             src={pattern.mockupImage}
@@ -101,7 +101,7 @@ function GalleryImpl({
   }
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-3 xl:space-y-4">
       {/* Main image — crossfade by stacking all images and toggling opacity */}
       <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-border bg-light">
         {images.map((img, i) => (
@@ -125,7 +125,7 @@ function GalleryImpl({
         role="tablist"
         aria-label={`${patternName} image gallery`}
         onKeyDown={handleKeyDown}
-        className="flex gap-2 overflow-x-auto pb-1"
+        className="flex gap-2 overflow-x-auto pb-1 xl:gap-3"
       >
         {images.map((img, i) => {
           const isActive = i === active;
@@ -138,7 +138,7 @@ function GalleryImpl({
               aria-label={`Show image ${i + 1} of ${images.length}`}
               tabIndex={isActive ? 0 : -1}
               onClick={() => setActive(i)}
-              className={`relative aspect-square w-16 shrink-0 overflow-hidden rounded-md border-2 bg-light transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 sm:w-20 ${
+              className={`relative aspect-square w-16 shrink-0 overflow-hidden rounded-md border-2 bg-light transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 sm:w-20 xl:w-24 ${
                 isActive
                   ? "border-accent"
                   : "border-border opacity-70 hover:opacity-100"

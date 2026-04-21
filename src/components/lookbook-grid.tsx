@@ -40,7 +40,7 @@ export function LookbookGrid({ tiles }: { tiles: LookbookTile[] }) {
         </div>
 
         {/* Desktop: 6-tile bento — 3×3 with wide bottom strip */}
-        <div className="hidden gap-4 md:grid md:grid-cols-3 md:grid-rows-3">
+        <div className="hidden gap-4 md:grid md:grid-cols-3 md:grid-rows-3 xl:gap-6">
           {/* Hero portrait — spans rows 1–2 */}
           <LookbookCard
             tile={t1}
@@ -95,7 +95,7 @@ export function LookbookGrid({ tiles }: { tiles: LookbookTile[] }) {
       </div>
 
       {/* Desktop: bento */}
-      <div className="hidden gap-4 md:grid md:grid-cols-3 md:grid-rows-2">
+      <div className="hidden gap-4 md:grid md:grid-cols-3 md:grid-rows-2 xl:gap-6">
         <LookbookCard
           tile={tall}
           className="row-span-2 aspect-[3/5]"

@@ -33,7 +33,7 @@ function Logo({ className }: { className?: string }) {
     <Link
       href="/"
       className={cn(
-        "font-black text-2xl uppercase text-primary tracking-[0.15em] select-none",
+        "font-black text-2xl lg:text-[1.65rem] uppercase text-primary tracking-[0.15em] select-none",
         className
       )}
       aria-label="ESTAMPA home"
@@ -110,39 +110,39 @@ export function Navigation() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/75">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="site-container flex h-16 items-center justify-between lg:h-20">
         {/* Logo + desktop nav */}
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-8 lg:gap-12">
           <Logo />
-          <div className="hidden md:flex items-center gap-6">
-            <nav className="flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
+            <nav className="flex items-center gap-6 lg:gap-8">
               <Link
                 href="/collection"
-                className="text-sm font-medium text-primary hover:text-accent transition-colors"
+                className="text-sm lg:text-[0.95rem] font-medium text-primary hover:text-accent transition-colors"
               >
                 {tr.nav_collection}
               </Link>
               <Link
                 href="/faq"
-                className="text-sm font-medium text-primary hover:text-accent transition-colors"
+                className="text-sm lg:text-[0.95rem] font-medium text-primary hover:text-accent transition-colors"
               >
                 {tr.nav_faq}
               </Link>
               <Link
                 href="/about"
-                className="text-sm font-medium text-primary hover:text-accent transition-colors"
+                className="text-sm lg:text-[0.95rem] font-medium text-primary hover:text-accent transition-colors"
               >
                 {tr.nav_about}
               </Link>
             </nav>
-            <span className="border border-border rounded-full px-3 py-0.5 text-xs text-muted bg-white">
+            <span className="border border-border rounded-full px-3 py-1 text-xs text-muted bg-white">
               {tr.ships_to}
             </span>
           </div>
         </div>
 
         {/* Right side */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 lg:gap-3">
           <LanguageToggle />
           <CartIcon count={cartCount} label={tr.nav_cart} />
           {/* Mobile menu */}

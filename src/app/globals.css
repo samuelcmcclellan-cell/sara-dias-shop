@@ -58,3 +58,29 @@
     font-family: var(--font-mono);
   }
 }
+
+@utility site-container {
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @media (width >= 40rem) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  @media (width >= 64rem) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  @media (width >= 80rem) {
+    max-width: 88rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  @media (width >= 96rem) {
+    max-width: 96rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}

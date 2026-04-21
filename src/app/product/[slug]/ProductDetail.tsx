@@ -121,21 +121,21 @@ export function ProductDetail({ pattern }: { pattern: Pattern }) {
       : tr.add_to_cart;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <div className="site-container py-8 xl:py-12">
       <nav className="mb-6 text-sm text-muted">
         <Link href="/collection" className="hover:text-accent">
           ← Back to collection
         </Link>
       </nav>
 
-      <div className="grid gap-8 lg:grid-cols-[55%_45%] lg:gap-12">
+      <div className="grid gap-8 lg:grid-cols-[55%_45%] lg:gap-12 xl:gap-16 2xl:gap-20">
         {/* Images */}
         <ProductGallery pattern={pattern} />
 
         {/* Info */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 xl:gap-7 xl:pt-2">
           <div>
-            <h1 className="text-3xl font-black tracking-tight text-primary sm:text-4xl">
+            <h1 className="text-3xl font-black tracking-tight text-primary sm:text-4xl xl:text-5xl">
               {pattern.name}
             </h1>
             <div className="mt-2 flex items-center gap-2">
@@ -143,10 +143,10 @@ export function ProductDetail({ pattern }: { pattern: Pattern }) {
                 {pattern.category}
               </Badge>
             </div>
-            <p className="mt-4 font-mono text-4xl font-bold text-accent">{priceDisplay}</p>
+            <p className="mt-4 font-mono text-4xl font-bold text-accent xl:text-5xl">{priceDisplay}</p>
           </div>
 
-          <p className="text-base leading-relaxed text-muted">{pattern.description}</p>
+          <p className="text-base leading-relaxed text-muted xl:text-lg">{pattern.description}</p>
 
           <div className="h-px bg-border" />
 
@@ -156,7 +156,7 @@ export function ProductDetail({ pattern }: { pattern: Pattern }) {
               <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">Size</h3>
               <SizeChartDialog tr={tr} />
             </div>
-            <div className="grid grid-cols-6 gap-1.5">
+            <div className="grid grid-cols-6 gap-1.5 xl:gap-2">
               {SHIRT_SIZES.map((s) => {
                 const selected = s === size;
                 return (
@@ -166,7 +166,7 @@ export function ProductDetail({ pattern }: { pattern: Pattern }) {
                     onClick={() => setSize(s)}
                     aria-pressed={selected}
                     className={cn(
-                      "h-11 rounded-md border text-sm font-semibold transition-colors",
+                      "h-11 rounded-md border text-sm font-semibold transition-colors xl:h-12 xl:text-base",
                       selected
                         ? "border-accent bg-accent text-white"
                         : "border-border bg-white text-primary hover:border-accent hover:text-accent"

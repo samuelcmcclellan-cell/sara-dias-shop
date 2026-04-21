@@ -117,7 +117,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       {/* HERO */}
-      <section className="relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-gradient-to-b from-white via-light to-white">
+      <section className="relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-gradient-to-b from-white via-light to-white lg:min-h-[calc(100vh-5rem)]">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 -z-10 opacity-40"
@@ -126,20 +126,20 @@ export default function HomePage() {
               "radial-gradient(circle at 20% 20%, rgba(255,77,0,0.12) 0, transparent 45%), radial-gradient(circle at 80% 60%, rgba(236,72,153,0.12) 0, transparent 40%)",
           }}
         />
-        <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-24">
+        <div className="site-container grid w-full items-center gap-12 py-20 lg:grid-cols-2 lg:gap-16 lg:py-24 xl:gap-24 xl:py-28">
           <div className="flex flex-col items-start">
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium uppercase tracking-wider text-muted">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               {tr.hero_badge}
             </span>
-            <h1 className="mt-6 text-5xl font-black leading-[1.05] tracking-tight text-primary sm:text-6xl lg:text-7xl">
+            <h1 className="mt-6 text-5xl font-black leading-[1.05] tracking-tight text-primary sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
               {tr.hero_heading_line1}
               <br />
               {tr.hero_heading_line2}
               <br />
               <span className="text-accent font-mono">{tr.hero_price_display}</span>
             </h1>
-            <p className="mt-6 max-w-lg text-base text-muted sm:text-lg">{tr.hero_sub}</p>
+            <p className="mt-6 max-w-lg text-base text-muted sm:text-lg xl:text-xl">{tr.hero_sub}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button asChild size="xl">
                 <Link href="/collection">
@@ -157,13 +157,13 @@ export default function HomePage() {
           </div>
 
           {/* Hero visual */}
-          <div className="relative lg:ml-auto lg:max-w-xl">
+          <div className="relative">
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border bg-white shadow-xl">
               <Image
                 src="/patterns/midnight-bloom-model-cabin.webp"
                 alt="Model wearing the Midnight Bloom tee in a wooden geodesic-cabin interior"
                 fill
-                sizes="(min-width: 1024px) 40vw, 100vw"
+                sizes="(min-width: 1024px) 48vw, 100vw"
                 priority
                 className="object-cover"
               />
@@ -177,14 +177,14 @@ export default function HomePage() {
             {/* Floating flat-lay — desktop only, cycles on mount */}
             <div
               aria-hidden="true"
-              className="absolute -bottom-8 -left-8 hidden w-40 overflow-hidden rounded-2xl border border-border bg-white shadow-xl sm:block sm:w-48 lg:w-56"
+              className="absolute -bottom-8 -left-8 hidden w-40 overflow-hidden rounded-2xl border border-border bg-white shadow-xl sm:block sm:w-48 lg:-bottom-10 lg:-left-10 lg:w-56 xl:-bottom-12 xl:-left-12 xl:w-64"
             >
               <div className="relative aspect-square w-full">
                 <Image
                   src={flatlay.src}
                   alt=""
                   fill
-                  sizes="14rem"
+                  sizes="16rem"
                   className={`object-cover transition-opacity duration-150 motion-reduce:transition-none ${flatlayVisible ? "opacity-100" : "opacity-0"}`}
                 />
               </div>
@@ -194,24 +194,24 @@ export default function HomePage() {
       </section>
 
       {/* FEATURED DESIGNS */}
-      <section className="bg-white py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+      <section className="bg-white py-20 sm:py-24 xl:py-32">
+        <div className="site-container">
+          <div className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end xl:mb-14">
             <div>
-              <h2 className="text-4xl font-black tracking-tight text-primary sm:text-5xl">
+              <h2 className="text-4xl font-black tracking-tight text-primary sm:text-5xl xl:text-6xl">
                 {tr.featured_heading}
               </h2>
-              <p className="mt-2 text-base text-muted">{tr.featured_sub}</p>
+              <p className="mt-2 text-base text-muted xl:text-lg">{tr.featured_sub}</p>
             </div>
             <Link
               href="/collection"
-              className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline"
+              className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline xl:text-base"
             >
               {tr.featured_view_all} <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8 2xl:grid-cols-4">
             {featured.map((p, i) => (
               <ProductCard key={p.slug} pattern={p} priority={i === 0} />
             ))}
@@ -223,13 +223,13 @@ export default function HomePage() {
       </section>
 
       {/* IN THE WILD — lookbook */}
-      <section className="bg-white pb-20 pt-4 sm:pb-24 sm:pt-8">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 max-w-2xl">
-            <h2 className="text-4xl font-black tracking-tight text-primary sm:text-5xl">
+      <section className="bg-white pb-20 pt-4 sm:pb-24 sm:pt-8 xl:pb-32">
+        <div className="site-container">
+          <div className="mb-10 max-w-2xl xl:mb-14 xl:max-w-3xl">
+            <h2 className="text-4xl font-black tracking-tight text-primary sm:text-5xl xl:text-6xl">
               {tr.lookbook_heading}
             </h2>
-            <p className="mt-2 text-base text-muted">{tr.lookbook_sub}</p>
+            <p className="mt-2 text-base text-muted xl:text-lg">{tr.lookbook_sub}</p>
           </div>
           <LookbookGrid tiles={lookbookTiles} />
         </div>
@@ -239,14 +239,14 @@ export default function HomePage() {
       <section className="overflow-hidden bg-primary">
         <div className="flex flex-col-reverse lg:grid lg:grid-cols-[1fr_55%]">
           {/* Text panel */}
-          <div className="flex flex-col justify-center px-6 py-16 sm:px-10 lg:py-28 lg:pl-16 lg:pr-12">
+          <div className="flex flex-col justify-center px-6 py-16 sm:px-10 lg:py-28 lg:pl-16 lg:pr-12 xl:py-36 xl:pl-24 xl:pr-16 2xl:pl-32">
             <span className="font-mono text-xs uppercase tracking-widest text-accent">
               {tr.editorial_eyebrow}
             </span>
-            <h2 className="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h2 className="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
               {tr.editorial_heading}
             </h2>
-            <p className="mt-6 max-w-md text-base text-white/65 lg:text-lg">
+            <p className="mt-6 max-w-md text-base text-white/65 lg:text-lg xl:max-w-lg xl:text-xl">
               {tr.editorial_body}
             </p>
             <Button
@@ -261,7 +261,7 @@ export default function HomePage() {
           </div>
 
           {/* Image panel — Desert Palms top-down dappled sunlight */}
-          <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[580px]">
+          <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[580px] xl:min-h-[680px]">
             <Image
               src="/patterns/desert-palms-flatlay.png"
               alt="Desert Palms tee laid flat on a wooden floor, shot top-down in strong dappled sunlight — orange and olive leaf print"
@@ -274,26 +274,26 @@ export default function HomePage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how-it-works" className="scroll-mt-20 bg-light py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-4xl font-black tracking-tight text-primary sm:text-5xl">
+      <section id="how-it-works" className="scroll-mt-20 bg-light py-20 sm:py-24 xl:py-32">
+        <div className="site-container">
+          <div className="mx-auto max-w-2xl text-center xl:max-w-3xl">
+            <h2 className="text-4xl font-black tracking-tight text-primary sm:text-5xl xl:text-6xl">
               {tr.how_it_works_heading}
             </h2>
-            <p className="mt-4 text-base text-muted">{tr.how_it_works_sub}</p>
+            <p className="mt-4 text-base text-muted xl:text-lg">{tr.how_it_works_sub}</p>
           </div>
 
-          <div className="mt-16 grid gap-8 md:grid-cols-3 md:gap-10">
+          <div className="mt-16 grid gap-8 md:grid-cols-3 md:gap-10 xl:mt-20 xl:gap-12">
             {steps.map((step) => (
               <div
                 key={step.num}
-                className="relative flex flex-col items-center rounded-2xl border border-border bg-white p-8 text-center transition-shadow hover:shadow-lg"
+                className="relative flex flex-col items-center rounded-2xl border border-border bg-white p-8 text-center transition-shadow hover:shadow-lg xl:p-10"
               >
-                <div className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-accent bg-white font-mono text-2xl font-bold text-accent">
+                <div className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-accent bg-white font-mono text-2xl font-bold text-accent xl:h-24 xl:w-24 xl:text-3xl">
                   {step.num}
                 </div>
-                <h3 className="mt-6 text-2xl font-bold text-primary">{step.title}</h3>
-                <p className="mt-3 text-base text-muted">{step.desc}</p>
+                <h3 className="mt-6 text-2xl font-bold text-primary xl:text-3xl">{step.title}</h3>
+                <p className="mt-3 text-base text-muted xl:text-lg">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -301,17 +301,17 @@ export default function HomePage() {
       </section>
 
       {/* ARTIST */}
-      <section className="bg-white py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
+      <section className="bg-white py-20 sm:py-24 xl:py-32">
+        <div className="site-container">
+          <div className="grid items-center gap-12 lg:grid-cols-2 xl:gap-20">
             <div className="order-2 lg:order-1">
               <span className="inline-flex items-center gap-2 rounded-full border border-border bg-light px-3 py-1 text-xs font-medium uppercase tracking-wider text-muted">
                 {tr.artist_badge}
               </span>
-              <h2 className="mt-4 text-4xl font-black tracking-tight text-primary sm:text-5xl">
+              <h2 className="mt-4 text-4xl font-black tracking-tight text-primary sm:text-5xl xl:text-6xl">
                 {tr.artist_heading}
               </h2>
-              <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
+              <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg xl:text-xl">
                 {tr.artist_bio}
               </p>
               <a
@@ -331,7 +331,7 @@ export default function HomePage() {
                   src="/patterns/pineapple-scarf-model-cabin.webp"
                   alt="Portrait of Sara Dias photographed in a wooden geodesic-cabin interior"
                   fill
-                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  sizes="(min-width: 1024px) 45vw, 100vw"
                   className="object-cover object-center"
                 />
               </div>
@@ -341,20 +341,20 @@ export default function HomePage() {
       </section>
 
       {/* TRUST */}
-      <section className="bg-light py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+      <section className="bg-light py-16 xl:py-20">
+        <div className="site-container">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-4 xl:gap-12">
             {[
               { icon: Truck, label: "Free Shipping" },
               { icon: Shield, label: "Premium Quality" },
               { icon: Palette, label: "Exclusive Designs" },
               { icon: Clock, label: "5-12 Day Delivery" },
             ].map(({ icon: Icon, label }) => (
-              <div key={label} className="flex flex-col items-center gap-3 text-center">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm">
-                  <Icon className="h-6 w-6 text-accent" />
+              <div key={label} className="flex flex-col items-center gap-3 text-center xl:gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm xl:h-16 xl:w-16">
+                  <Icon className="h-6 w-6 text-accent xl:h-7 xl:w-7" />
                 </div>
-                <span className="text-sm font-semibold text-primary">{label}</span>
+                <span className="text-sm font-semibold text-primary xl:text-base">{label}</span>
               </div>
             ))}
           </div>
@@ -363,12 +363,12 @@ export default function HomePage() {
 
       {/* CTA */}
       <section className="bg-accent">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="site-container py-20 xl:py-28">
           <div className="flex flex-col items-center gap-6 text-center sm:gap-8">
-            <h2 className="text-4xl font-black tracking-tight text-white sm:text-5xl">
+            <h2 className="text-4xl font-black tracking-tight text-white sm:text-5xl xl:text-6xl">
               Find your pattern.
             </h2>
-            <p className="max-w-xl text-base text-white/90 sm:text-lg">
+            <p className="max-w-xl text-base text-white/90 sm:text-lg xl:text-xl">
               Nine exclusive designs. One premium tee. Free shipping on every order.
             </p>
             <Button

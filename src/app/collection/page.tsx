@@ -34,8 +34,8 @@ export default function CollectionPage() {
   }, [category, sort]);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div className="relative mb-10 overflow-hidden rounded-2xl border border-border aspect-[16/9] md:aspect-[21/9]">
+    <div className="site-container py-12 xl:py-16">
+      <div className="relative mb-10 overflow-hidden rounded-2xl border border-border aspect-[16/9] md:aspect-[21/9] xl:mb-14 xl:aspect-[24/8]">
         <Image
           src="/patterns/midnight-bloom-model-pastel.webp"
           alt="Model wearing the Midnight Bloom tee in a pastel studio set"
@@ -48,11 +48,11 @@ export default function CollectionPage() {
           aria-hidden="true"
           className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent"
         />
-        <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10">
-          <h1 className="text-4xl font-black tracking-tight text-white drop-shadow sm:text-5xl lg:text-6xl">
+        <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10 xl:p-14">
+          <h1 className="text-4xl font-black tracking-tight text-white drop-shadow sm:text-5xl lg:text-6xl xl:text-7xl">
             The Collection
           </h1>
-          <p className="mt-2 text-base text-white/90 drop-shadow sm:text-lg">
+          <p className="mt-2 text-base text-white/90 drop-shadow sm:text-lg xl:text-xl">
             Exclusive all-over-print patterns by Sara Dias
           </p>
         </div>
@@ -100,7 +100,7 @@ export default function CollectionPage() {
       {filtered.length === 0 ? (
         <p className="mt-16 text-center text-sm text-muted">No designs in this category yet.</p>
       ) : (
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
           {filtered.map((p) => (
             <ProductCard key={p.slug} pattern={p} />
           ))}

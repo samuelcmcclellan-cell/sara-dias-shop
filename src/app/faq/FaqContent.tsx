@@ -57,32 +57,32 @@ export function FaqContent() {
   return (
     <div className="flex flex-col">
       {/* HERO */}
-      <section className="bg-white py-20 sm:py-24">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+      <section className="bg-white py-20 sm:py-24 xl:py-32">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8 xl:max-w-4xl">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-light px-3 py-1 text-xs font-medium uppercase tracking-wider text-muted">
             {tr.faq_eyebrow}
           </span>
-          <h1 className="mt-4 text-5xl font-black leading-[1.05] tracking-tight text-primary sm:text-6xl">
+          <h1 className="mt-4 text-5xl font-black leading-[1.05] tracking-tight text-primary sm:text-6xl xl:text-7xl">
             {tr.faq_heading}
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg xl:text-xl">
             {tr.faq_intro}
           </p>
         </div>
       </section>
 
       {/* FAQ GROUPS */}
-      <section className="bg-light py-16 sm:py-20">
-        <div className="mx-auto max-w-3xl space-y-12 px-4 sm:px-6 lg:px-8">
+      <section className="bg-light py-16 sm:py-20 xl:py-28">
+        <div className="mx-auto max-w-3xl space-y-12 px-4 sm:px-6 lg:px-8 xl:max-w-4xl xl:space-y-16">
           {groups.map((group) => (
             <div key={group.id}>
-              <h2 className="text-2xl font-black tracking-tight text-primary sm:text-3xl">
+              <h2 className="text-2xl font-black tracking-tight text-primary sm:text-3xl xl:text-4xl">
                 {group.title}
               </h2>
               <Accordion
                 type="single"
                 collapsible
-                className="mt-4 rounded-2xl border border-border bg-white px-6 shadow-sm"
+                className="mt-4 rounded-2xl border border-border bg-white px-6 shadow-sm xl:mt-6 xl:px-8"
               >
                 {group.items.map((item, idx) => (
                   <AccordionItem
@@ -90,10 +90,10 @@ export function FaqContent() {
                     value={`${group.id}-${idx}`}
                     className="last:border-b-0"
                   >
-                    <AccordionTrigger className="text-left text-base sm:text-base">
+                    <AccordionTrigger className="text-left text-base sm:text-base xl:text-lg">
                       {item.q}
                     </AccordionTrigger>
-                    <AccordionContent className="text-base text-muted sm:text-base">
+                    <AccordionContent className="text-base text-muted sm:text-base xl:text-lg">
                       {item.a}
                     </AccordionContent>
                   </AccordionItem>
@@ -106,12 +106,12 @@ export function FaqContent() {
 
       {/* CTA */}
       <section className="bg-accent">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="site-container py-20 xl:py-28">
           <div className="flex flex-col items-center gap-6 text-center sm:gap-8">
-            <h2 className="text-4xl font-black tracking-tight text-white sm:text-5xl">
+            <h2 className="text-4xl font-black tracking-tight text-white sm:text-5xl xl:text-6xl">
               {tr.faq_cta_heading}
             </h2>
-            <p className="max-w-xl text-base text-white/90 sm:text-lg">
+            <p className="max-w-xl text-base text-white/90 sm:text-lg xl:text-xl">
               {tr.faq_cta_body}
             </p>
             <Button

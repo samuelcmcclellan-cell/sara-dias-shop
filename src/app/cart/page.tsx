@@ -12,9 +12,9 @@ import { formatPrice } from "@/lib/utils";
 
 function CartSkeleton() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div className="site-container py-12 xl:py-16">
       <div className="h-10 w-48 animate-pulse rounded-md bg-light" />
-      <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_380px]">
+      <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_380px] xl:grid-cols-[1fr_440px] xl:gap-12">
         <div className="space-y-4">
           {[0, 1].map((i) => (
             <div
@@ -103,45 +103,45 @@ export default function CartPage() {
   if (items.length === 0) return <EmptyCart />;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <header className="mb-8">
-        <h1 className="text-3xl font-black tracking-tight text-primary sm:text-4xl">Your Cart</h1>
-        <p className="mt-1 text-sm text-muted">
+    <div className="site-container py-12 xl:py-16">
+      <header className="mb-8 xl:mb-12">
+        <h1 className="text-3xl font-black tracking-tight text-primary sm:text-4xl xl:text-5xl">Your Cart</h1>
+        <p className="mt-1 text-sm text-muted xl:text-base">
           {items.length} {items.length === 1 ? "item" : "items"} · Free shipping on every order
         </p>
       </header>
 
-      <div className="grid gap-8 lg:grid-cols-[1fr_380px]">
+      <div className="grid gap-8 lg:grid-cols-[1fr_380px] xl:grid-cols-[1fr_440px] xl:gap-12">
         {/* Items */}
-        <ul className="space-y-4">
+        <ul className="space-y-4 xl:space-y-5">
           {items.map((item) => {
             const lineTotal = item.price * item.quantity;
             return (
               <li
                 key={item.id}
-                className="flex flex-col gap-4 rounded-xl border border-border bg-white p-4 sm:flex-row sm:items-center"
+                className="flex flex-col gap-4 rounded-xl border border-border bg-white p-4 sm:flex-row sm:items-center xl:p-5"
               >
                 <Link
                   href={`/product/${item.patternSlug}`}
-                  className="relative aspect-[4/5] h-auto w-24 shrink-0 overflow-hidden rounded-md border border-border bg-light sm:h-28 sm:w-24"
+                  className="relative aspect-[4/5] h-auto w-24 shrink-0 overflow-hidden rounded-md border border-border bg-light sm:h-28 sm:w-24 xl:h-36 xl:w-32"
                 >
                   <Image
                     src={item.mockupImage}
                     alt={`${item.patternName} mockup`}
                     fill
-                    sizes="96px"
+                    sizes="(min-width: 1280px) 128px, 96px"
                     className="object-cover"
                   />
                 </Link>
-                <div className="flex flex-1 flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex flex-1 flex-col gap-2 sm:flex-row sm:items-center sm:justify-between xl:gap-4">
                   <div className="min-w-0">
                     <Link
                       href={`/product/${item.patternSlug}`}
-                      className="block truncate text-base font-semibold text-primary hover:text-accent"
+                      className="block truncate text-base font-semibold text-primary hover:text-accent xl:text-lg"
                     >
                       {item.patternName}
                     </Link>
-                    <p className="text-xs text-muted">
+                    <p className="text-xs text-muted xl:text-sm">
                       Size <span className="font-mono font-semibold text-primary">{item.size}</span>
                       {" · "}
                       <span className="font-mono">{formatPrice(item.price)}</span> each
@@ -193,12 +193,12 @@ export default function CartPage() {
         </ul>
 
         {/* Summary */}
-        <aside className="h-fit lg:sticky lg:top-20">
-          <div className="rounded-xl border border-border bg-white p-6">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-primary">
+        <aside className="h-fit lg:sticky lg:top-20 xl:top-24">
+          <div className="rounded-xl border border-border bg-white p-6 xl:p-8">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-primary xl:text-base">
               Order Summary
             </h2>
-            <dl className="mt-4 space-y-3 text-sm">
+            <dl className="mt-4 space-y-3 text-sm xl:mt-6 xl:space-y-4 xl:text-base">
               <div className="flex items-center justify-between">
                 <dt className="text-muted">Subtotal</dt>
                 <dd className="font-mono font-semibold text-primary">{formatPrice(subtotal)}</dd>
@@ -209,8 +209,8 @@ export default function CartPage() {
               </div>
               <div className="border-t border-border pt-3" />
               <div className="flex items-center justify-between">
-                <dt className="text-base font-semibold text-primary">Total</dt>
-                <dd className="font-mono text-2xl font-bold text-primary">
+                <dt className="text-base font-semibold text-primary xl:text-lg">Total</dt>
+                <dd className="font-mono text-2xl font-bold text-primary xl:text-3xl">
                   {formatPrice(subtotal)}
                 </dd>
               </div>
